@@ -1,3 +1,4 @@
+from Initalise import AgentSimulation
 
 if __name__ == "__main__":
     num_agents = 100
