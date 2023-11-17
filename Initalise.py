@@ -1,9 +1,9 @@
 import networkx as nx
 import random
 import string
-
-class AgentSimulation:
-    def __init__(self, num_agents, num_steps):
+from SaveImages import FileLocator
+class AgentSimulation: # 
+    def __init__(self, num_agents, num_steps, outputfolder):
         self.Graphnetwork = nx.Graph()
         self.Graphnetwork.add_node(0, agents=[])
         self.Graphnetwork.add_node(1, agents=[])
@@ -39,6 +39,7 @@ class AgentSimulation:
 if __name__ == "__main__":
     num_agents = 100
     num_steps = 12
-    simulation = AgentSimulation(num_agents, num_steps)
+    filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
+    simulation = AgentSimulation(num_agents, num_steps, filelocation)
     simulation.initialize_agents()
     simulation.run_simulation()
