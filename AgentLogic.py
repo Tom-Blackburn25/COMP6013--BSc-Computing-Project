@@ -12,21 +12,25 @@ class Agentlogic:
 
 
 
+    def add_agent_location_history(self, agent_id, current_node, step):
+        for node in self.Graphnetwork.nodes():
+            agents_on_node = self.Graphnetwork.nodes[node]['agents']
+            for agent in agents_on_node:
+                if agent['id'] == agent_id:
+                    agent['previous_nodes'].append({'node': current_node, 'step': step})
+                    return  # Exit loop after appending the location
+        print(f"Agent with ID {agent_id} not found or has no location.")  # Print error if agent ID is not found
 
+    def print_agents_location_history(self):
+        for node in self.Graphnetwork.nodes():
+            agents_on_node = self.Graphnetwork.nodes[node]['agents']
+            for agent in agents_on_node:
+                print(f"Agent ID: {agent['id']}")
+                if agent['previous_nodes']:
+                    print("Location History:")
+                    for loc in agent['previous_nodes']:
+                        print(f"   Node: {loc['node']}, Step: {loc['step']}")
+                else:
+                    print("No location history available")
+                print("\n")    
 
-if __name__ == "__main__":
-    num_agents = 100
-    num_steps = 12
-    simulation = AgentSimulation(num_agents, num_steps)
-
-    # Initialize agents and run simulation
-    simulation.initialize_agents()
-    simulation.run_simulation()
-
-    # Get the current location of agent with ID = 5
-    agent_id_to_find = 5
-    agent_location = simulation.get_agent_location(agent_id_to_find)
-    if agent_location is not None:
-        print(f"Agent with ID {agent_id_to_find} is currently at node {agent_location}")
-    else:
-        print(f"Agent with ID {agent_id_to_find} is not found or has no location.")

@@ -20,7 +20,7 @@ class AgentSimulation:
         agent_id = 1  # Initialize the agent ID counter
         for _ in range(self.total_agents):
             random_node = random.choice(list(self.Graphnetwork.nodes()))
-            agent = {'id': agent_id}
+            agent = {'id': agent_id, 'previous_nodes': []}
             self.Graphnetwork.nodes[random_node]['agents'].append(agent)
             agent_id += 1  # Increment the agent ID for the next agent
 
@@ -33,11 +33,9 @@ class AgentSimulation:
                 agents_on_node = self.Graphnetwork.nodes[node]['agents']
                 for agent in agents_on_node:
                     agent_location = self.agent_logic.get_agent_location(agent['id'])
-                    if agent_location is not None:
-                        print(f"Agent with ID {agent['id']} is currently at node {agent_location}")
-                    else:
-                        print(f"Agent with ID {agent['id']} is not found or has no location.")
-
+                    self.agent_logic.add_agent_location_history(agent['id'], agent_location , step)
+                    self.agent_logic.print_agents_location_history()
+                    
             #Prints number of agents in a node
             for node in self.Graphnetwork.nodes():
                 agents_on_node = self.Graphnetwork.nodes[node]['agents']
@@ -45,7 +43,8 @@ class AgentSimulation:
                 for agent in agents_on_node:
                     print(f"   Agent ID: {agent['id']}")
             print("\n")
-            
+        
+
 
 
 if __name__ == "__main__":
@@ -55,6 +54,8 @@ if __name__ == "__main__":
     simulation = AgentSimulation(num_agents, num_steps, filelocation)
     simulation.initialize_agents()
     simulation.run_simulation()
+    
+
     
 #tests if the agent locations are correct
     agent_id_to_find = 5
