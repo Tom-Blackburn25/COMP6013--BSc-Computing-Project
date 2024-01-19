@@ -57,10 +57,10 @@ class AgentSimulation:
 
     def initialize_agents(self):
         agent_id = 1  # Initialize the agent ID counter
+        start_node = 8 
         for _ in range(self.total_agents):
-            random_node = random.choice(list(self.Graphnetwork.nodes()))
-            agent = {'id': agent_id, 'previous_nodes': []}
-            self.Graphnetwork.nodes[random_node]['agents'].append(agent)
+            agent = {'id': agent_id, 'previous_nodes': [], 'time_counter': 0, 'path': [], 'current_location': start_node}
+            self.Graphnetwork.nodes[start_node]['agents'].append(agent)
             agent_id += 1  # Increment the agent ID for the next agent
 
     def run_simulation(self):
@@ -70,15 +70,42 @@ class AgentSimulation:
             
             # Perform simulation steps here
             for node in self.Graphnetwork.nodes():
-                agents_on_node = self.Graphnetwork.nodes[node]['agents']
-                for agent in agents_on_node:
-                    agent_location = self.agent_logic.get_agent_location(agent['id'])
-                    self.agent_logic.add_agent_location_history(agent['id'], agent_location, step)
-                    self.agent_logic.print_agents_location_history()
+                    agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
+                    print(agents_on_node)
+                    print(node)
+                    for agent in agents_on_node:
+                        agent_location = self.agent_logic.get_agent_location(agent['id'])
+                        if not agent['path']:
+                            target_location = self.agent_logic.decide_new_target_location()
+                            agent['path'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
+                            print(target_location)
+                        
+                    
+
+                            agent['time_counter'] += 1
+
+                    #self.agent_logic.add_agent_location_history(agent['id'], agent_location, step)
+                    #self.agent_logic.print_agents_location_history()
+                        else:
+                            should_move = self.agent_logic.decide_move_or_stay(agent)
+
+                            if should_move:
+                                print("decided to move")
+                                path = agent['path']
+                                if path[0] == agent["current_location"]:
+                                    agent["current_location"] = path[1]
+                                    agent["path"] = path[2:]
+
+                                else:                                
+                                    agent["current_location"] = path[0]
+                                    agent['path'] = path[1:]
+                                agent['time_counter'] = 0
+                                
+                            agent['time_counter'] +=1
                     
             # Prints number of agents in a node
             for node in self.Graphnetwork.nodes():
-                agents_on_node = self.Graphnetwork.nodes[node]['agents']
+                agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
                 print(f"Node {node}: {len(agents_on_node)} agents")
                 for agent in agents_on_node:
                     print(f"   Agent ID: {agent['id']}")
