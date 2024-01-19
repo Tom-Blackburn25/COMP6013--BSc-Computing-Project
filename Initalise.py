@@ -78,7 +78,7 @@ class AgentSimulation:
                         if not agent['path']:
                             target_location = self.agent_logic.decide_new_target_location()
                             agent['path'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
-                            print(target_location)
+                            print("Agent:", agent['id'] ,"is routing to" , target_location)
                         
                     
 
@@ -100,7 +100,7 @@ class AgentSimulation:
                                     agent["current_location"] = path[0]
                                     agent['path'] = path[1:]
                                 agent['time_counter'] = 0
-                                
+
                             agent['time_counter'] +=1
                     
             # Prints number of agents in a node
