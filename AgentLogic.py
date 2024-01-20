@@ -77,3 +77,13 @@ class Agentlogic:
         total_factor = time_counter * random_factor
 
         return total_factor > 0.5
+    
+    
+    def update_last_node(self, agent_id, current_node):
+        for node in self.Graphnetwork.nodes():
+            agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
+            for agent in agents_on_node:
+                if agent['id'] == agent_id:
+                    agent['last_node'] = [current_node]
+                    return  # Exit loop after updating the previous node
+        print(f"Agent with ID {agent_id} not found or has no location.")  # Print error if agent ID is not found

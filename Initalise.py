@@ -59,7 +59,16 @@ class AgentSimulation:
         agent_id = 1  # Initialize the agent ID counter
         start_node = 8 
         for _ in range(self.total_agents):
-            agent = {'id': agent_id, 'previous_nodes': [], 'time_counter': 0, 'path': [], 'current_location': start_node}
+            agent = {
+            'id': agent_id,
+            'previous_nodes': [],
+            'last_node': [],
+            'time_counter': 0,
+            'path': [],
+            'current_location': start_node,
+            'time_in_palace': 0,
+            'visited_count': {node: 0 for node in self.Graphnetwork.nodes}
+            }
             self.Graphnetwork.nodes[start_node]['agents'].append(agent)
             agent_id += 1  # Increment the agent ID for the next agent
 
@@ -74,6 +83,16 @@ class AgentSimulation:
                     print(agents_on_node)
                     print(node)
                     for agent in agents_on_node:
+                        agent['time_in_palace'] += 1
+                        current_location = agent['current_location']
+                        last_node = agent['last_node']
+                        if agent['time_in_palace'] < 1:
+                            self.agent_logic.update_last_node(agent['id'], agent["current_location"])
+                        if current_location != last_node:
+                            agent['visited_count'][current_location] += 1
+                        
+                        
+
                         agent_location = self.agent_logic.get_agent_location(agent['id'])
                         if not agent['path']:
                             target_location = self.agent_logic.decide_new_target_location()
@@ -92,11 +111,13 @@ class AgentSimulation:
                             if should_move:
                                 print("decided to move")
                                 path = agent['path']
-                                if path[0] == agent["current_location"]:
+                                if path[0] == agent["current_location"]: 
+                                    self.agent_logic.update_last_node(agent['id'], agent["current_location"])
                                     agent["current_location"] = path[1]
                                     agent["path"] = path[2:]
 
                                 else:                                
+                                    self.agent_logic.update_last_node(agent['id'], agent["current_location"])
                                     agent["current_location"] = path[0]
                                     agent['path'] = path[1:]
                                 agent['time_counter'] = 0
