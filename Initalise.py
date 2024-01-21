@@ -62,12 +62,13 @@ class AgentSimulation:
             agent = {
             'id': agent_id,
             'previous_nodes': [],
-            'last_node': [],
+            'last_node': [8],
             'time_counter': 0,
             'path': [],
             'current_location': start_node,
             'time_in_palace': 0,
-            'visited_count': {node: 0 for node in self.Graphnetwork.nodes}
+            'visited_count': {node: 0 for node in self.Graphnetwork.nodes},
+            'leaving' : 0
             }
             self.Graphnetwork.nodes[start_node]['agents'].append(agent)
             agent_id += 1  # Increment the agent ID for the next agent
@@ -80,8 +81,7 @@ class AgentSimulation:
             # Perform simulation steps here
             for node in self.Graphnetwork.nodes():
                     agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
-                    print(agents_on_node)
-                    print(node)
+                    
                     for agent in agents_on_node:
                         agent['time_in_palace'] += 1
                         current_location = agent['current_location']
@@ -95,24 +95,34 @@ class AgentSimulation:
 
                         agent_location = self.agent_logic.get_agent_location(agent['id'])
                         if not agent['path']:
-                            target_location = self.agent_logic.decide_new_target_location()
+                            visitedNodes = []
+
+                            for node, count in agent['visited_count'].items():
+                                 if count > 0:
+                                    visitedNodes.append(node)
+
+                            target_location = self.agent_logic.decide_new_target_location(agent,step,visitedNodes)
+                            if target_location == 8:
+                                agent['leaving'] = 1
+                            
                             agent['path'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
                             print("Agent:", agent['id'] ,"is routing to" , target_location)
                         
                     
 
                             agent['time_counter'] += 1
-
-                    #self.agent_logic.add_agent_location_history(agent['id'], agent_location, step)
-                    #self.agent_logic.print_agents_location_history()
+                        
                         else:
                             should_move = self.agent_logic.decide_move_or_stay(agent)
-
-                            if should_move:
+                            if agent['leaving'] == 1 and agent['current_location'] == 8:
+                                self.agent_logic.remove_agent_from_graph(agent)
+                            elif should_move:
                                 print("decided to move")
                                 path = agent['path']
                                 if path[0] == agent["current_location"]: 
                                     self.agent_logic.update_last_node(agent['id'], agent["current_location"])
+                                    
+
                                     agent["current_location"] = path[1]
                                     agent["path"] = path[2:]
 
@@ -125,6 +135,7 @@ class AgentSimulation:
                             agent['time_counter'] +=1
                     
             # Prints number of agents in a node
+                            
             for node in self.Graphnetwork.nodes():
                 agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
                 print(f"Node {node}: {len(agents_on_node)} agents")
@@ -134,7 +145,7 @@ class AgentSimulation:
 
 if __name__ == "__main__":
     num_agents = 100
-    num_steps = 12
+    num_steps = 60
     filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
     simulation = AgentSimulation(num_agents, num_steps, filelocation)
     simulation.initialize_agents()

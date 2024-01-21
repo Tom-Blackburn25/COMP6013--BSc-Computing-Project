@@ -10,7 +10,11 @@ class Agentlogic:
             for agent in agents_on_node:
                 if agent['id'] == agent_id:
                     return node  # Return the node where the agent is located
+                
 
+    def remove_agent_from_graph(self, agent):
+        current_location = agent['current_location']
+        self.Graphnetwork.nodes[current_location]['agents'].remove(agent)
 
 
     def add_agent_location_history(self, agent_id, current_node, step):
@@ -46,36 +50,50 @@ class Agentlogic:
             print(f"No path found from {current_node} to {target_node}.")
             return None
         
-    def decide_new_target_location(self):
-        # Define the target locations and their corresponding percentages
-        target_locations = {
-            7: 6.534152512, #Churchill Exhibition
-            6: 8.601373329, #Stables Cafe
-            11: 18.90133719, #Retail Toilet
-            2: 25.12468377, #Retail Shop
-            5: 8.832670763, #Stables Exhibition
-            1: 16.55222262, #Pantry
-            12: 8.398988074, #Palace Inside 2
-            19: 2.13227322, #Stables Female toilet
-            14: 1.676906397, #Churchill Male Toilet
-            15: 1.539573545, #Churchill Female Toilet
-            18: 1.705818576 #Stables Male toilet
+    def decide_new_target_location(self, agent, step ,visitedNodes):
+        Base_Probability_based_on_visitors = {
+            1: 16.55222262,  # Pantry
+            2: 25.12468377,  # Retail Shop
+            5: 8.832670763,  # Stables Exhibition
+            6: 8.601373329,  # Stables Cafe
+            7: 6.534152512,  # Churchill Exhibition
+            11: 18.90133719,  # Retail Toilet
+            12: 8.398988074,  # Palace Inside 2
+            14: 1.676906397,  # Churchill Male Toilet
+            15: 1.539573545,  # Churchill Female Toilet
+            18: 1.705818576,  # Stables Male toilet
+            19: 2.13227322  # Stables Female toilet
         }
+        visited_nodes = set(agent['visited_count'].keys())
 
-        # Normalize percentages to sum up to 1
-        total_percentage = sum(target_locations.values())
-        normalized_percentages = {location: percent / total_percentage for location, percent in target_locations.items()}
+    # Filter out visited nodes from base probabilities
+        
+    # Leave Palace decision logic
+        if step > 300:
+            time_in_palace_factor = agent['time_in_palace'] / 210  # Normalize time in palace to range 0-1
+            total_chance = time_in_palace_factor + (step / 300)
 
-        # Choose a target location based on percentages
-        chosen_location = random.choices(list(normalized_percentages.keys()), weights=normalized_percentages.values())[0]
+            if total_chance > 1:
+                total_chance = 1
+
+            if random.random() < total_chance:
+                return 8  # Leave Palace
+
+    
+
+    # Normalize percentages to sum up to 1 for unvisited nodes
+        total_percentage_unvisited = sum(Base_Probability_based_on_visitors.values())
+        normalized_percentages_unvisited = {location: prob / total_percentage_unvisited for location, prob in Base_Probability_based_on_visitors.items()}
+
+    # Choose a target location based on percentages for unvisited nodes
+        chosen_location = random.choices(list(normalized_percentages_unvisited.keys()), weights=normalized_percentages_unvisited.values())[0]
 
         return chosen_location
-    
+
     def decide_move_or_stay(self, agent):
         time_counter = agent['time_counter']
         random_factor = random.uniform(0, 0.15)
         total_factor = time_counter * random_factor
-
         return total_factor > 0.5
     
     
