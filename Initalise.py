@@ -120,11 +120,17 @@ class AgentSimulation:
                                 print("decided to move")
                                 path = agent['path']
                                 if path[0] == agent["current_location"]: 
-                                    self.agent_logic.update_last_node(agent['id'], agent["current_location"])
-                                    
+                                    if len(path) > 1:
+                                        self.agent_logic.update_last_node(agent['id'], agent["current_location"])
+                                        agent["current_location"] = path[1]
+                                        agent["path"] = path[2:]
+                                    else:
+                                        target_location = self.agent_logic.decide_new_target_location(agent, step, visitedNodes)
+                                        agent_location = agent["current_location"]
+                                        agent['path'] = self.agent_logic.perform_a_star_search(agent_location, target_location)                                    
 
-                                    agent["current_location"] = path[1]
-                                    agent["path"] = path[2:]
+                                    
+                                    
 
                                 else:                                
                                     self.agent_logic.update_last_node(agent['id'], agent["current_location"])
@@ -145,7 +151,7 @@ class AgentSimulation:
 
 if __name__ == "__main__":
     num_agents = 100
-    num_steps = 60
+    num_steps = 600
     filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
     simulation = AgentSimulation(num_agents, num_steps, filelocation)
     simulation.initialize_agents()
