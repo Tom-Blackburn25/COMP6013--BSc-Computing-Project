@@ -1,7 +1,10 @@
 import networkx as nx
 import random
+import os
+import sys
 from SaveImages import FileLocator
 from AgentLogic import Agentlogic
+import matplotlib.pyplot as plt
 
 class AgentSimulation:
     def __init__(self, num_agents, num_steps, outputfolder):
@@ -52,8 +55,12 @@ class AgentSimulation:
         ])
         self.num_steps = num_steps
         self.total_agents = num_agents
+        self.outputfolder = outputfolder
         self.pos = nx.spring_layout(self.Graphnetwork)
         self.agent_logic = Agentlogic(self.Graphnetwork)  # Create an instance of Agentlogic
+
+
+
 
     def initialize_agents(self):
         agent_id = 1  # Initialize the agent ID counter
@@ -64,7 +71,7 @@ class AgentSimulation:
             'previous_nodes': [],
             'last_node': [8],
             'time_counter': 0,
-            'path': [],
+            'Apath': [],
             'current_location': start_node,
             'time_in_palace': 0,
             'visited_count': {node: 0 for node in self.Graphnetwork.nodes},
@@ -94,7 +101,7 @@ class AgentSimulation:
                         
 
                         agent_location = self.agent_logic.get_agent_location(agent['id'])
-                        if not agent['path']:
+                        if not agent['Apath']:
                             visitedNodes = []
 
                             for node, count in agent['visited_count'].items():
@@ -105,7 +112,7 @@ class AgentSimulation:
                             if target_location == 8:
                                 agent['leaving'] = 1
                             
-                            agent['path'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
+                            agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
                             print("Agent:", agent['id'] ,"is routing to" , target_location)
                         
                     
@@ -118,24 +125,26 @@ class AgentSimulation:
                                 self.agent_logic.remove_agent_from_graph(agent)
                             elif should_move:
                                 print("decided to move")
-                                path = agent['path']
-                                if path[0] == agent["current_location"]: 
-                                    if len(path) > 1:
+                                Apath = agent['Apath']
+                                if Apath[0] == agent["current_location"]: 
+                                    if len(Apath) > 1:
                                         self.agent_logic.update_last_node(agent['id'], agent["current_location"])
-                                        agent["current_location"] = path[1]
-                                        agent["path"] = path[2:]
+                                        agent["current_location"] = Apath[1]
+                                        agent["Apath"] = Apath[2:]
                                     else:
                                         target_location = self.agent_logic.decide_new_target_location(agent, step, visitedNodes)
+                                        if target_location ==8:
+                                            agent['leaving'] = 1
                                         agent_location = agent["current_location"]
-                                        agent['path'] = self.agent_logic.perform_a_star_search(agent_location, target_location)                                    
+                                        agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)                                    
 
                                     
                                     
 
                                 else:                                
                                     self.agent_logic.update_last_node(agent['id'], agent["current_location"])
-                                    agent["current_location"] = path[0]
-                                    agent['path'] = path[1:]
+                                    agent["current_location"] = Apath[0]
+                                    agent['Apath'] = Apath[1:]
                                 agent['time_counter'] = 0
 
                             agent['time_counter'] +=1
@@ -149,10 +158,42 @@ class AgentSimulation:
                     print(f"   Agent ID: {agent['id']}")
             print("\n")
 
+
+
+            if step % 20 == 0:
+                self.save_graph(step)
+                
+    def save_graph(self, step):
+        # Create a filename for the saved graph using the step number
+        filename = f"graph_step_{step}.png"
+
+        # Create the full path for saving the image
+        output_path = os.path.join(self.outputfolder, filename)
+
+        # Ensure the output folder exists before saving the file
+        os.makedirs(self.outputfolder, exist_ok=True)
+
+        # Plot and save the graph using matplotlib
+        plt.figure(figsize=(10, 8))
+        nx.draw(self.Graphnetwork, pos=self.pos, with_labels=True, node_color='lightblue', node_size=800)
+        for node, label in self.node_info.items():
+            agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
+            total_agents = len(agents_on_node)
+            plt.text(self.pos[node][0], self.pos[node][1] - 0.1, f"Total Agents: {total_agents}", ha='center', va='center')
+        
+        plt.title(f"Agent Simulation - Step {step}")
+        plt.savefig(output_path)
+        plt.close()         
+
+
 if __name__ == "__main__":
-    num_agents = 100
-    num_steps = 600
+    num_agents = 100 #Total avg People per Day 13859   /   100 is testing number
+    num_steps = 600 # 6 hours of visiting times
+
     filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
+    if filelocation is None or filelocation == "":
+        print("Error: filelocator is empty. Exiting program.")
+        sys.exit()
     simulation = AgentSimulation(num_agents, num_steps, filelocation)
     simulation.initialize_agents()
     simulation.run_simulation()

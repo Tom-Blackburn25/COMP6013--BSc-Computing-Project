@@ -7,6 +7,7 @@ class FileLocator:
         os.makedirs(ImagePrintLocation, exist_ok=True)
         image_name = f'step_{num_of_steps}.png'
         image_path = os.path.join(ImagePrintLocation, image_name)
+        return image_path
         
     #plt.savefig(image_path)  The saving of the file command
 
