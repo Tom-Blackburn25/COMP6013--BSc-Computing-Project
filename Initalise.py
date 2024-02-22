@@ -176,8 +176,19 @@ class AgentSimulation:
     def plot_time_series(self):
         time_steps = range(self.num_steps)
         nodes = list(self.node_info.keys())
-
+        output_folder = "time_series_plot"
+        os.makedirs(output_folder, exist_ok=True)
         # Create a plot for each node
+        for node in nodes:
+            agents_counts = [data[node] for data in self.time_series_data]
+            plt.plot(time_steps, agents_counts)
+            plt.xlabel("Time Step")
+            plt.ylabel("Number of Agents")
+            plt.title(f"Node {node} - Number of Agents Over Time")
+            output_path = os.path.join(output_folder, f"node_{node}_plot.png")
+            plt.savefig(output_path)
+            plt.close()
+        plt.figure()
         for node in nodes:
             agents_counts = [data[node] for data in self.time_series_data]
             plt.plot(time_steps, agents_counts, label=f"Node {node}")
@@ -186,13 +197,12 @@ class AgentSimulation:
         plt.ylabel("Number of Agents")
         plt.title("Number of Agents on Each Node Over Time")
         plt.legend()
-        output_folder = "time_series_plot"
-        os.makedirs(output_folder, exist_ok=True)
         
-        # Save the plot
-        output_path = os.path.join(output_folder, "time_series_plot.png")
-        plt.savefig(output_path)
-
+        # Save the combined plot
+        output_path_combined = os.path.join(output_folder, "combined_plot.png")
+        plt.savefig(output_path_combined)
+        
+        # Show the combined plot
         plt.show()
                 
     def save_graph(self, step):
