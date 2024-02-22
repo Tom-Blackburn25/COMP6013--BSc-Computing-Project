@@ -58,7 +58,7 @@ class AgentSimulation:
         self.outputfolder = outputfolder
         self.pos = nx.spring_layout(self.Graphnetwork)
         self.agent_logic = Agentlogic(self.Graphnetwork)  # Create an instance of Agentlogic
-
+        self.time_series_data = []
 
 
 
@@ -85,10 +85,17 @@ class AgentSimulation:
             print("\n")
             print(f"Step {step}:")
             
+
+            agents_on_nodes = {node: 0 for node in self.Graphnetwork.nodes()}
+
             # Perform simulation steps here
             for node in self.Graphnetwork.nodes():
                     agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
-                    
+                    agents_on_nodes[node] = len(agents_on_node)
+
+                    nx.set_node_attributes(self.Graphnetwork, {node: {'time_step': step, 'agents_count': agents_on_nodes[node]}})
+
+
                     for agent in agents_on_node:
                         agent['time_in_palace'] += 1
                         current_location = agent['current_location']
@@ -150,7 +157,9 @@ class AgentSimulation:
                             agent['time_counter'] +=1
                     
             # Prints number of agents in a node
-                            
+            self.time_series_data.append(agents_on_nodes.copy())
+
+
             for node in self.Graphnetwork.nodes():
                 agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
                 print(f"Node {node}: {len(agents_on_node)} agents")
@@ -162,6 +171,29 @@ class AgentSimulation:
 
             if step % 20 == 0:
                 self.save_graph(step)
+
+
+    def plot_time_series(self):
+        time_steps = range(self.num_steps)
+        nodes = list(self.node_info.keys())
+
+        # Create a plot for each node
+        for node in nodes:
+            agents_counts = [data[node] for data in self.time_series_data]
+            plt.plot(time_steps, agents_counts, label=f"Node {node}")
+
+        plt.xlabel("Time Step")
+        plt.ylabel("Number of Agents")
+        plt.title("Number of Agents on Each Node Over Time")
+        plt.legend()
+        output_folder = "time_series_plot"
+        os.makedirs(output_folder, exist_ok=True)
+        
+        # Save the plot
+        output_path = os.path.join(output_folder, "time_series_plot.png")
+        plt.savefig(output_path)
+
+        plt.show()
                 
     def save_graph(self, step):
         # Create a filename for the saved graph using the step number
@@ -187,8 +219,8 @@ class AgentSimulation:
 
 
 if __name__ == "__main__":
-    num_agents = 100 #Total avg People per Day 13859   /   100 is testing number
-    num_steps = 600 # 6 hours of visiting times
+    num_agents = 100 #Total avg People per Day 3837  /   100 is testing number
+    num_steps = 450 # 7.5 hours of visiting times
 
     filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
     if filelocation is None or filelocation == "":
@@ -197,6 +229,7 @@ if __name__ == "__main__":
     simulation = AgentSimulation(num_agents, num_steps, filelocation)
     simulation.initialize_agents()
     simulation.run_simulation()
+    simulation.plot_time_series()
     
     # Tests if the agent locations are correct
     agent_id_to_find = 5
