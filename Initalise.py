@@ -37,7 +37,7 @@ class AgentSimulation:
             (2, 1), (2, 3), (2, 11), (2, 10),
             (3, 8), (3, 2), (3, 12),
             (4, 13), (4, 12), (3, 9),
-            (5, 15), (5, 6),
+            (5, 13), (5, 6),
             (6, 18), (6, 19), (6, 17),
             (7, 13), (7, 15),
             (8, 3),
@@ -53,14 +53,44 @@ class AgentSimulation:
             (18, 6),
             (19, 6),
         ])
+        
+        
+        #placing the nodes
+        self.node_positions = {
+            1: (-5,-2),
+            2: (-3,-2),
+            3: (-4,0),
+            4: (-0.2,5),
+            5: (3,-1),
+            6: (4,-1.5),
+            7: (1.5,6),
+            8: (-6,0),
+            9: (-2,0),
+            10: (-3,-1),
+            11: (-3,-4),
+            12: (0.75,7),
+            13: (0,0),
+            14: (1.5,4.75),
+            15: (2,4),
+            16: (3.5,3.5),
+            17: (4,0),
+            18: (5,-0.85),
+            19: (5,-2.15)
+        }
+
+
+
         self.num_steps = num_steps
         self.total_agents = num_agents
         self.outputfolder = outputfolder
-        self.pos = nx.spring_layout(self.Graphnetwork)
+        self.pos = self.node_positions
         self.agent_logic = Agentlogic(self.Graphnetwork)  # Create an instance of Agentlogic
         self.time_series_data = []
 
+    
+        
 
+    
 
     def initialize_agents(self):
         agent_id = 1  # Initialize the agent ID counter
@@ -217,12 +247,16 @@ class AgentSimulation:
 
         # Plot and save the graph using matplotlib
         plt.figure(figsize=(10, 8))
-        nx.draw(self.Graphnetwork, pos=self.pos, with_labels=True, node_color='lightblue', node_size=800)
+        nx.draw(self.Graphnetwork, pos=self.pos, with_labels=False, node_color='lightblue', node_size=250,)
         for node, label in self.node_info.items():
             agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
             total_agents = len(agents_on_node)
-            plt.text(self.pos[node][0], self.pos[node][1] - 0.1, f"Total Agents: {total_agents}", ha='center', va='center')
-        
+            # Display total agents slightly lower
+            plt.text(self.pos[node][0], self.pos[node][1] - 0.2, f"Total Agents: {total_agents}", ha='center', va='center')
+
+            # Display node name above the node
+            plt.text(self.pos[node][0], self.pos[node][1] + 0.1, label, ha='center', va='center')
+
         plt.title(f"Agent Simulation - Step {step}")
         plt.savefig(output_path)
         plt.close()         

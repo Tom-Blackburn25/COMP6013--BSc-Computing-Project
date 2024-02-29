@@ -69,15 +69,19 @@ class Agentlogic:
     # Filter out visited nodes from base probabilities
         
     # Leave Palace decision logic
+        
+        time_in_palace_factor = agent['time_in_palace'] / 210  # Normalize time in palace to range 0-1
+        stepchance = 0
         if step > 300:
-            time_in_palace_factor = agent['time_in_palace'] / 210  # Normalize time in palace to range 0-1
-            total_chance = time_in_palace_factor + (step / 300)
+             stepchance = ((step - 300) / 300)
 
-            if total_chance > 1:
-                total_chance = 1
+        total_chance = time_in_palace_factor + stepchance
+        
+        if total_chance > 1:
+            total_chance = 1    
 
-            if random.random() < total_chance:
-                return 8  # Leave Palace
+        if random.random() < total_chance:
+            return 8  # Leave Palace
 
     
 

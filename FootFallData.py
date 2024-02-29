@@ -23,9 +23,10 @@ def calculate_footfall(csv_file):
 
 csv_file_path06 = '2024-01-06-ff.csv'  
 csv_file_path07 = '2024-01-07-ff.csv'
+csv_file_path10 = '2024-02-10-ff.csv'
 result06 = calculate_footfall(csv_file_path06)
 result07 = calculate_footfall(csv_file_path07)
-
+result10 = calculate_footfall(csv_file_path10)
 # Output the result
 for description, hour_footfall in result06.items():
     print(f"Description: {description}")
