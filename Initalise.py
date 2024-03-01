@@ -116,22 +116,25 @@ class AgentSimulation:
         return agent_id
 
     def distribute_agents(self,step):
-        if step <= 60:
+        if step <= 60: # first hour (9 o'clock - 10 o'clock)
             agentsacrossthehour = 144
-        if 60 < step <=120:
+        if 60 < step <=120: # second hour (10 o'clock - 11 o'clock)
             agentsacrossthehour = 404
-        if 120 < step <=180:
+        if 120 < step <=180: # third hour (11 o'clock - 12 o'clock)
             agentsacrossthehour = 732
-        if 180 < step <=240:
+        if 180 < step <=240: # fourth hour (12 o'clock - 1 o'clock)
             agentsacrossthehour = 746
-        if 240 < step <=300:
+        if 240 < step <=300: # fifth hour (1 o'clock - 2 o'clock)
             agentsacrossthehour = 852
-        if 300 < step <=360:
+        if 300 < step <=360: # sixth hour (2 o'clock - 3 o'clock)
+            agentsacrossthehour = 892
+        if 360 < step <=420: # seventh hour (3 o'clock - 4 o'clock)
             agentsacrossthehour = 900
-        if 360 < step <=420:
+        if 420 < step <=480: # eighth hour (4 o'clock)
             agentsacrossthehour = 538
-        if 420 < step <=450:
+        if 480 < step <= 510:
             agentsacrossthehour = 166
+
 
         mean_agents_per_step = agentsacrossthehour / 60  # Mean number of agents per step
         std_dev = np.sqrt(mean_agents_per_step)  # Standard deviation
@@ -307,7 +310,7 @@ class AgentSimulation:
 
 if __name__ == "__main__":
     num_agents = 100 #Total avg People per Day 3837  /   100 is testing number
-    num_steps = 450 # 7.5 hours of visiting times starting at 9 ending 3:30
+    num_steps = 510 # 8.5 hours of visiting times starting at 9 ending 5:30
 
     filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
     if filelocation is None or filelocation == "":
