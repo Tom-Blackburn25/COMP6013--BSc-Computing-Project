@@ -28,7 +28,7 @@ result06 = calculate_footfall(csv_file_path06)
 result07 = calculate_footfall(csv_file_path07)
 result10 = calculate_footfall(csv_file_path10)
 # Output the result
-for description, hour_footfall in result06.items():
+for description, hour_footfall in result10.items():
     print(f"Description: {description}")
     for hour in range(8, 19):  # Iterate over hours from 8 to 18
         footfall = hour_footfall.get(hour, 0)  # Get footfall count or default to 0

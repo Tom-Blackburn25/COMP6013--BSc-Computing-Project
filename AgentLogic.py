@@ -64,6 +64,7 @@ class Agentlogic:
             18: 1.705818576,  # Stables Male toilet
             19: 2.13227322  # Stables Female toilet
         }
+        
         visited_nodes = set(agent['visited_count'].keys())
 
     # Filter out visited nodes from base probabilities

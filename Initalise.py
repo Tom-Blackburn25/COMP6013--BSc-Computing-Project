@@ -5,6 +5,7 @@ import sys
 from SaveImages import FileLocator
 from AgentLogic import Agentlogic
 import matplotlib.pyplot as plt
+import numpy as np
 
 class AgentSimulation:
     def __init__(self, num_agents, num_steps, outputfolder):
@@ -89,13 +90,16 @@ class AgentSimulation:
 
     
         
-
+    
     
 
-    def initialize_agents(self):
-        agent_id = 1  # Initialize the agent ID counter
+  
+    
+    def add_agents(self,numberOfAgentsToAdd,currentAgentId):
+        agent_id = currentAgentId # Initialize the agent ID counter
         start_node = 8 
-        for _ in range(self.total_agents):
+        numAgents = numberOfAgentsToAdd
+        for _ in range(numAgents):
             agent = {
             'id': agent_id,
             'previous_nodes': [],
@@ -109,11 +113,50 @@ class AgentSimulation:
             }
             self.Graphnetwork.nodes[start_node]['agents'].append(agent)
             agent_id += 1  # Increment the agent ID for the next agent
+        return agent_id
+
+    def distribute_agents(self,step):
+        if step <= 60:
+            agentsacrossthehour = 144
+        if 60 < step <=120:
+            agentsacrossthehour = 404
+        if 120 < step <=180:
+            agentsacrossthehour = 732
+        if 180 < step <=240:
+            agentsacrossthehour = 746
+        if 240 < step <=300:
+            agentsacrossthehour = 852
+        if 300 < step <=360:
+            agentsacrossthehour = 900
+        if 360 < step <=420:
+            agentsacrossthehour = 538
+        if 420 < step <=450:
+            agentsacrossthehour = 166
+
+        mean_agents_per_step = agentsacrossthehour / 60  # Mean number of agents per step
+        std_dev = np.sqrt(mean_agents_per_step)  # Standard deviation
+    
+    # Generate the number of agents to add to each step
+        agents_per_step = np.random.normal(mean_agents_per_step, std_dev, 60).astype(int)
+        agents_per_step = np.clip(agents_per_step, 0, None)
+        return agents_per_step
+
 
     def run_simulation(self):
+        agent_id_setter = 0
+        distributed_agents = None
         for step in range(self.num_steps):
             print("\n")
             print(f"Step {step}:")
+
+            if step % 60 == 0:
+                distributed_agents = self.distribute_agents(step)
+
+            if distributed_agents is not None:
+                agents_to_add = distributed_agents[step % 60]
+                agent_id_setter = self.add_agents(agents_to_add, agent_id_setter)
+
+
             
 
             agents_on_nodes = {node: 0 for node in self.Graphnetwork.nodes()}
@@ -264,14 +307,14 @@ class AgentSimulation:
 
 if __name__ == "__main__":
     num_agents = 100 #Total avg People per Day 3837  /   100 is testing number
-    num_steps = 450 # 7.5 hours of visiting times
+    num_steps = 450 # 7.5 hours of visiting times starting at 9 ending 3:30
 
     filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
     if filelocation is None or filelocation == "":
         print("Error: filelocator is empty. Exiting program.")
         sys.exit()
     simulation = AgentSimulation(num_agents, num_steps, filelocation)
-    simulation.initialize_agents()
+    
     simulation.run_simulation()
     simulation.plot_time_series()
     
