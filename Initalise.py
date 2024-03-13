@@ -36,7 +36,7 @@ class AgentSimulation:
         self.Graphnetwork.add_edges_from([
             (1, 2), (1, 3),
             (2, 1), (2, 3), (2, 11), (2, 10),
-            (3, 8), (3, 2), (3, 12),
+            (3, 8), (3, 2),
             (4, 13), (4, 12), (3, 9),
             (5, 13), (5, 6),
             (6, 18), (6, 19), (6, 17),
@@ -130,9 +130,9 @@ class AgentSimulation:
             agentsacrossthehour = 892
         if 360 < step <=420: # seventh hour (3 o'clock - 4 o'clock)
             agentsacrossthehour = 900
-        if 420 < step <=480: # eighth hour (4 o'clock)
+        if 420 < step <=480: # eighth hour (4 o'clock - 5 o'clock)
             agentsacrossthehour = 538
-        if 480 < step <= 510:
+        if 480 < step <= 510: # ninth hour (5 o'clock - 5:30)
             agentsacrossthehour = 166
 
 
@@ -191,6 +191,7 @@ class AgentSimulation:
                                  if count > 0:
                                     visitedNodes.append(node)
 
+                            
                             target_location = self.agent_logic.decide_new_target_location(agent,step,visitedNodes)
                             if target_location == 8:
                                 agent['leaving'] = 1

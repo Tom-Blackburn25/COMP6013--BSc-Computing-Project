@@ -209,8 +209,9 @@ class Agentlogic:
             19: 5.769230769  # Stables Female toilet
         }
         
-        visited_nodes = set(agent['visited_count'].keys())
-
+        for node in visitedNodes:
+            if node in Base_Probability_based_on_visitors:
+                del Base_Probability_based_on_visitors[node]
     # Filter out visited nodes from base probabilities
         
     # Leave Palace decision logic
@@ -227,8 +228,12 @@ class Agentlogic:
 
         if random.random() < total_chance:
             return 8  # Leave Palace
+        
+        # Handle the case when an agent has visited all nodes
+        if not Base_Probability_based_on_visitors:
+                        
+            return 8 # Leave Palace
 
-    
 
     # Normalize percentages to sum up to 1 for unvisited nodes
         total_percentage_unvisited = sum(Base_Probability_based_on_visitors.values())
