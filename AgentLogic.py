@@ -1,9 +1,13 @@
 import networkx as nx
 import random
+import numpy as np
 
 class Agentlogic:
     def __init__(self, graph_network):
         self.Graphnetwork = graph_network
+
+        self.stay_durations = {node: [] for node in self.Graphnetwork.nodes()}
+
     def get_agent_location(self, agent_id):
         for node in self.Graphnetwork.nodes():
             agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
@@ -62,7 +66,8 @@ class Agentlogic:
             14: 1.676906397,  # Churchill Male Toilet
             15: 1.539573545,  # Churchill Female Toilet
             18: 1.705818576,  # Stables Male toilet
-            19: 2.13227322  # Stables Female toilet
+            19: 2.13227322,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if step <= 60: # first hour (9 o'clock - 10 o'clock)
             Base_Probability_based_on_visitors = {
@@ -76,12 +81,13 @@ class Agentlogic:
             10: 2.5, #Retail to CV - Madeup
             11: 4.460093897,  # Retail Toilet
             12: 1.408450704,  # Palace Inside 2
-            14: 0,  # Churchill Male Toilet
-            15: 0.234741784,  # Churchill Female Toilet
+            14: 1,  # Churchill Male Toilet
+            15: 1.234741784,  # Churchill Female Toilet
             16: 5, # Formal Gardens - Madeup
             17: 10.79812207,  # West Courtyard
             18: 0.704225352,  # Stables Male toilet
-            19: 2.34741784  # Stables Female toilet
+            19: 2.34741784,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 60 < step <=120: # second hour (10 o'clock - 11 o'clock)
             Base_Probability_based_on_visitors = {
@@ -100,7 +106,8 @@ class Agentlogic:
             16: 5, # Formal Gardens - Madeup
             17: 7.473725185,  # West Courtyard
             18: 0.233553912,  # Stables Male toilet
-            19: 0.272479564  # Stables Female toilet
+            19: 0.272479564,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 120 < step <=180: # third hour (11 o'clock - 12 o'clock)
             Base_Probability_based_on_visitors = {
@@ -119,7 +126,8 @@ class Agentlogic:
             16: 5, # Formal Gardens - Madeup
             17: 7.369972626,  # West Courtyard
             18: 0.58959781,  # Stables Male toilet
-            19: 1.052853232  # Stables Female toilet
+            19: 1.052853232,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 180 < step <=240: # fourth hour (12 o'clock - 1 o'clock)
             Base_Probability_based_on_visitors = {
@@ -138,7 +146,8 @@ class Agentlogic:
             16: 5, # Formal Gardens - Madeup
             17: 9.328134373,  # West Courtyard
             18: 0.419916017,  # Stables Male toilet
-            19: 0.569886023  # Stables Female toilet
+            19: 0.569886023,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 240 < step <=300: # fifth hour (1 o'clock - 2 o'clock)
             Base_Probability_based_on_visitors = {
@@ -157,7 +166,8 @@ class Agentlogic:
             16: 5, # Formal Gardens - Madeup
             17: 8.710968775,  # West Courtyard
             18: 0.64051241,  # Stables Male toilet
-            19: 1.393114492  # Stables Female toilet
+            19: 1.393114492,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 300 < step <=360: # sixth hour (2 o'clock - 3 o'clock)
             Base_Probability_based_on_visitors = {
@@ -176,7 +186,8 @@ class Agentlogic:
             16: 5, # Formal Gardens - Madeup
             17: 8.795615559,  # West Courtyard
             18: 0.735195829,  # Stables Male toilet
-            19: 1.096110146  # Stables Female toilet
+            19: 1.096110146,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 360 < step <=420: # seventh hour (3 o'clock - 4 o'clock)
             Base_Probability_based_on_visitors = {
@@ -195,7 +206,8 @@ class Agentlogic:
             16: 5, # Formal Gardens - Madeup
             17: 9.350566459,  # West Courtyard
             18: 0.686133716,  # Stables Male toilet
-            19: 1.180788256  # Stables Female toilet
+            19: 1.180788256,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 420 < step <=480: # eighth hour (4 o'clock - 5 o'clock)
             Base_Probability_based_on_visitors = {
@@ -214,26 +226,28 @@ class Agentlogic:
             16: 5, # Formal Gardens - Madeup
             17: 8.358509567,  # West Courtyard
             18: 0.730110775,  # Stables Male toilet
-            19: 0.27693857  # Stables Female toilet
+            19: 0.27693857,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         if 480 < step <= 510: # ninth hour (5 o'clock - 5:30)
             Base_Probability_based_on_visitors = {
             1: 24.51923077,  # Pantry
             2: 2.884615385,  # Retail Shop
             4: 4.326923077,  # Palace Inside 1
-            5: 0,  # Stables Exhibition
+            5: 1,  # Stables Exhibition
             6: 13.46153846,  # Stables Cafe
-            7: 0,  # Churchill Exhibition
+            7: 1,  # Churchill Exhibition
             9: 3, #Clock Arch - MadeUp
             10: 2.5, #Retail to CV - Madeup
             11: 3.365384615,  # Retail Toilet
             12: 17.30769231,  # Palace Inside 2
-            14: 0,  # Churchill Male Toilet
-            15: 0.961538462,  # Churchill Female Toilet
+            14: 1,  # Churchill Male Toilet
+            15: 1.961538462,  # Churchill Female Toilet
             16: 5, # Formal Gardens - Madeup
             17: 25.96153846,  # West Courtyard
             18: 1.442307692,  # Stables Male toilet
-            19: 5.769230769  # Stables Female toilet
+            19: 5.769230769,  # Stables Female toilet
+            20: 10 # East courtyard Seating
         }
         
         for node in visitedNodes:
@@ -271,13 +285,93 @@ class Agentlogic:
 
         return chosen_location
 
+
+
+
+
+
     def decide_move_or_stay(self, agent):
+        currentLoc = agent['current_location']
+        Base_moving_durability= {
+            1: 25,  # Pantry
+            2: 12,  # Retail Shop
+            3: 2,  # East Courtyard
+            4: 30,  # Palace inside 1
+            5: 10,  # Stables Exhibition
+            6: 30,  # Stables Cafe
+            7: 25,  # Churchill Exhibition
+            8: 1,  # Flagstaff Arch
+            9: 1,  # Clock Arch
+            10: 60,  # Retail to CV
+            11: 3,  # Retail Toilet
+            12: 35,  # Palace Inside 2
+            13: 7,  # Palace Courtyard
+            14: 3,  # Churchill Male Toilet
+            15: 3,  # Churchill Female Toilet
+            16: 60,  # Formal Gardens
+            17: 2,  # West Courtyard
+            18: 3,  # Stables Male toilet
+            19: 3,  # Stables Female toilet
+            20: 30  # East courtyard Seating
+        }
+        Kvalues={
+            1: 25,  # Pantry
+            2: 12,  # Retail Shop
+            3: 2,  # East Courtyard
+            4: 30,  # Palace inside 1
+            5: 10,  # Stables Exhibition
+            6: 30,  # Stables Cafe
+            7: 25,  # Churchill Exhibition
+            8: 1,  # Flagstaff Arch
+            9: 1,  # Clock Arch
+            10: 60,  # Retail to CV
+            11: 3,  # Retail Toilet
+            12: 35,  # Palace Inside 2
+            13: 7,  # Palace Courtyard
+            14: 3,  # Churchill Male Toilet
+            15: 3,  # Churchill Female Toilet
+            16: 60,  # Formal Gardens
+            17: 2,  # West Courtyard
+            18: 3,  # Stables Male toilet
+            19: 3,  # Stables Female toilet
+            20: 30  # East courtyard Seating
+
+        }
+
+        if currentLoc in Base_moving_durability:
+            mean_duration = Base_moving_durability[currentLoc]
+            # Shape parameter (k) and scale parameter (theta)
+            k = 2
+            theta = 5
+            # Generate a random duration from gamma distribution
+            stay_duration = np.random.gamma(k, theta)
+            # Adjust the mean of the distribution
+            stay_duration *= mean_duration / np.mean(stay_duration)
+            print(stay_duration)
+            self.stay_durations[currentLoc].append(stay_duration)
+            return stay_duration
+
         time_counter = agent['time_counter']
         random_factor = random.uniform(0, 0.15)
         total_factor = time_counter * random_factor
         return total_factor > 0.5
     
+
+
+
+
+
+
+
+
+
+
+    def get_stay_durations(self):
+        return self.stay_durations
     
+
+    
+
     def update_last_node(self, agent_id, current_node):
         for node in self.Graphnetwork.nodes():
             agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]

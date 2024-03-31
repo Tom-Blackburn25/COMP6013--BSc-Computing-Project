@@ -20,7 +20,7 @@ class AgentSimulation:
             7: "Churchill Exhibition",
             8: "Flagstaff Arch",
             9: "Clock Arch",
-            10: "Retail to CV",
+            10: "Retail to CoV",
             11: "Retail Toilet",
             12: "Palace Inside 2",
             13: "Palace Courtyard",
@@ -29,14 +29,15 @@ class AgentSimulation:
             16: "Formal Gardens",
             17: "West Courtyard",
             18: "Stables Male toilet",
-            19: "Stables Female toilet"
+            19: "Stables Female toilet",
+            20: "East Courtyard Seating",
         }
         
         self.Graphnetwork.add_nodes_from(self.node_info.keys(), agents=[])
         self.Graphnetwork.add_edges_from([
             (1, 2), (1, 3),
             (2, 1), (2, 3), (2, 11), (2, 10),
-            (3, 8), (3, 2),
+            (3, 8), (3, 2), (3,20),
             (4, 13), (4, 12), (3, 9),
             (5, 13), (5, 6),
             (6, 18), (6, 19), (6, 17),
@@ -53,6 +54,7 @@ class AgentSimulation:
             (17, 16), (17, 6), (17, 13),
             (18, 6),
             (19, 6),
+            (20,3)
         ])
         
         
@@ -68,7 +70,7 @@ class AgentSimulation:
             8: (-6,0),
             9: (-2,0),
             10: (-3,-1),
-            11: (-3,-4),
+            11: (-1,-2),
             12: (0.75,7),
             13: (0,0),
             14: (1.5,4.75),
@@ -76,7 +78,8 @@ class AgentSimulation:
             16: (3.5,3.5),
             17: (4,0),
             18: (5,-0.85),
-            19: (5,-2.15)
+            19: (5,-2.15),
+            20: (-4,0.75)
         }
 
 
@@ -109,7 +112,8 @@ class AgentSimulation:
             'current_location': start_node,
             'time_in_palace': 0,
             'visited_count': {node: 0 for node in self.Graphnetwork.nodes},
-            'leaving' : 0
+            'leaving' : 0,
+            'planned_duration': 0
             }
             self.Graphnetwork.nodes[start_node]['agents'].append(agent)
             agent_id += 1  # Increment the agent ID for the next agent
@@ -205,6 +209,7 @@ class AgentSimulation:
                         
                         else:
                             should_move = self.agent_logic.decide_move_or_stay(agent)
+                            
                             if agent['leaving'] == 1 and agent['current_location'] == 8:
                                 self.agent_logic.remove_agent_from_graph(agent)
                             elif should_move:
@@ -248,6 +253,9 @@ class AgentSimulation:
 
             if step % 20 == 0:
                 self.save_graph(step)
+
+        
+                
 
 
     def plot_time_series(self):
@@ -306,7 +314,25 @@ class AgentSimulation:
 
         plt.title(f"Agent Simulation - Step {step}")
         plt.savefig(output_path)
-        plt.close()         
+        plt.close()     
+
+    def plot_distribution(self):
+        for node, label in self.node_info.items():
+            durations = self.agent_logic.get_stay_durations()
+
+            # Plot histogram
+            plt.hist(durations, bins=20, density=True, alpha=0.7, color='blue')
+            plt.xlabel('Stay Duration')
+            plt.ylabel('Probability Density')
+            plt.title(f'Distribution of Stay Durations for Node {label}')
+            plt.show()
+        
+        # Save data to a file
+            filename = f"{node}_stay_distribution.txt"
+            with open(filename, 'w') as file:
+                for duration in durations:
+                    file.write(f"{duration}\n")
+            print(f"Data saved to {filename}")    
 
 
 if __name__ == "__main__":
@@ -321,6 +347,7 @@ if __name__ == "__main__":
     
     simulation.run_simulation()
     simulation.plot_time_series()
+    simulation.plot_distribution()
     
     # Tests if the agent locations are correct
     agent_id_to_find = 5
