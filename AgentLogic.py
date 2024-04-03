@@ -305,7 +305,22 @@ class Agentlogic:
         currentduration -= 1
         return currentduration
 
-
+    
+    def decide_move_or_stay_crowd_check(self, agent, overcrowded):
+        plannedduration = agent['planned_duration']
+        time_counter = agent['time_counter']
+        
+        # Calculate how close the time_counter is to the planned duration
+        time_ratio = min(time_counter / plannedduration, 1.0)
+        
+        # Multiply by the overcrowdedness score
+        score = time_ratio * overcrowded
+        
+        # Generate a random number between 0 and 1
+        random_value = random.uniform(0, 1)
+        
+        # Return True if the random value is less than or equal to the calculated score, False otherwise
+        return random_value <= score
 
 
 
@@ -381,8 +396,8 @@ class Agentlogic:
         # Calculate stay duration using gamma distribution
         mean_duration = Base_durability[currentLoc]
         theta = mean_duration / k
-        stay_duration = np.random.gamma(k, theta)
-        print(stay_duration)
+        stay_duration = max(1, np.random.gamma(k, theta))
+        
         self.stay_durations[currentLoc].append(stay_duration)
         return stay_duration
     
@@ -397,26 +412,26 @@ class Agentlogic:
     def get_k_value(self, node):
         # Dictionary containing k values for each node
         Kvalues = {
-            1: 25,  # Pantry
-            2: 12,  # Retail Shop
-            3: 2,   # East Courtyard
-            4: 30,  # Palace inside 1
-            5: 10,  # Stables Exhibition
-            6: 30,  # Stables Cafe
-            7: 25,  # Churchill Exhibition
+            1: 3,  # Pantry
+            2: 2,  # Retail Shop
+            3: 1,   # East Courtyard
+            4: 2.5,  # Palace inside 1
+            5: 1.5,  # Stables Exhibition
+            6: 3,  # Stables Cafe
+            7: 2,  # Churchill Exhibition
             8: 1,   # Flagstaff Arch
             9: 1,   # Clock Arch
-            10: 60, # Retail to CV
-            11: 3,  # Retail Toilet
-            12: 35, # Palace Inside 2
-            13: 7,  # Palace Courtyard
-            14: 3,  # Churchill Male Toilet
-            15: 3,  # Churchill Female Toilet
-            16: 60, # Formal Gardens
-            17: 2,  # West Courtyard
-            18: 3,  # Stables Male toilet
-            19: 3,  # Stables Female toilet
-            20: 30  # East courtyard Seating
+            10: 3, # Retail to CV
+            11: 1,  # Retail Toilet
+            12: 2.5, # Palace Inside 2
+            13: 1,  # Palace Courtyard
+            14: 1,  # Churchill Male Toilet
+            15: 1,  # Churchill Female Toilet
+            16: 3, # Formal Gardens
+            17: 1,  # West Courtyard
+            18: 1,  # Stables Male toilet
+            19: 1,  # Stables Female toilet
+            20: 1.5  # East courtyard Seating
         }
         
         return Kvalues[node]

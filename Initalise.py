@@ -203,34 +203,70 @@ class AgentSimulation:
                             agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
                             print("Agent:", agent['id'] ,"is routing to" , target_location)
                             agent['planned_duration'] = self.agent_logic.decide_duration(agent)
-                            
+                            print(agent['planned_duration'])
 
                             agent['time_counter'] += 1
                         
                         else:
-                            if agent['planned_duration'] > agent['time_counter']:
-                                numofagents = agents_on_nodes[node]
-                                overcrowededScore = self.agent_logic.overcrowededcheck(node,numofagents)
-                                
-                            should_move = self.agent_logic.decide_move_or_stay(agent)
                             
                             if agent['leaving'] == 1 and agent['current_location'] == 8:
                                 self.agent_logic.remove_agent_from_graph(agent)
-                            elif should_move:
+                            if agent['planned_duration'] > agent['time_counter']:
+                                numofagents = agents_on_nodes[node]
+                                overcrowdedScore = self.agent_logic.overcrowededcheck(node,numofagents)
+                                move_or_stayduetoovercrowd = self.agent_logic.decide_move_or_stay_crowd_check(agent,overcrowdedScore)
+                                if move_or_stayduetoovercrowd:
+                                    print("decided to move because of overcrowdedness")
+                                    Apath = agent['Apath']
+                                    if Apath[0] == agent["current_location"]: 
+                                        if len(Apath) > 1:
+                                            self.agent_logic.update_last_node(agent['id'], agent["current_location"])
+
+                                            agent["current_location"] = Apath[1]
+                                            agent["Apath"] = Apath[2:]
+                                            agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                                        else:
+                                            target_location = self.agent_logic.decide_new_target_location(agent, step, visitedNodes)
+                                        
+                                            if target_location ==8:
+                                                agent['leaving'] = 1
+                                            agent_location = agent["current_location"]
+                                            agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)   
+                                            agent['planned_duration'] = self.agent_logic.decide_duration(agent)                                 
+                                
+                                    
+                                    
+
+                                    else:                                
+                                        self.agent_logic.update_last_node(agent['id'], agent["current_location"])
+                                        agent["current_location"] = Apath[0]
+                                        agent['Apath'] = Apath[1:]
+                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                                    agent['time_counter'] = 0
+                                    
+                                agent['time_counter'] +=1
+                                
+
+                            else:
                                 print("decided to move")
+                                
                                 Apath = agent['Apath']
                                 if Apath[0] == agent["current_location"]: 
                                     if len(Apath) > 1:
                                         self.agent_logic.update_last_node(agent['id'], agent["current_location"])
+
                                         agent["current_location"] = Apath[1]
                                         agent["Apath"] = Apath[2:]
+                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent)
                                     else:
                                         target_location = self.agent_logic.decide_new_target_location(agent, step, visitedNodes)
+                                        
                                         if target_location ==8:
                                             agent['leaving'] = 1
                                         agent_location = agent["current_location"]
-                                        agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)                                    
-
+                                        agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)   
+                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent)                                 
+                                
                                     
                                     
 
@@ -238,9 +274,10 @@ class AgentSimulation:
                                     self.agent_logic.update_last_node(agent['id'], agent["current_location"])
                                     agent["current_location"] = Apath[0]
                                     agent['Apath'] = Apath[1:]
-                                agent['time_counter'] = 0
-
-                            agent['time_counter'] +=1
+                                    agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                                agent['time_counter'] = 0 
+                                    
+                            
                     
             # Prints number of agents in a node
             self.time_series_data.append(agents_on_nodes.copy())
@@ -321,22 +358,24 @@ class AgentSimulation:
         plt.close()     
 
     def plot_distribution(self):
+        output_folder = "duration_distribution_plots"
+        os.makedirs(output_folder, exist_ok=True)
+        
         for node, label in self.node_info.items():
             durations = self.agent_logic.get_stay_durations(node)
 
             # Plot histogram
             plt.hist(durations, bins=20, alpha=0.7, color='blue')
             plt.xlabel('Stay Duration')
-            plt.ylabel('frequency')
+            plt.ylabel('Frequency')
             plt.title(f'Distribution of Stay Durations for Node {label}')
-            plt.show()
-        
-        # Save data to a file
-            filename = f"{node}_stay_distribution.txt"
-            with open(filename, 'w') as file:
-                for duration in durations:
-                    file.write(f"{duration}\n")
-            print(f"Data saved to {filename}")    
+            
+            # Save the plot as an image in the output folder
+            filename = os.path.join(output_folder, f"{node}_stay_distribution.png")
+            plt.savefig(filename)
+            plt.close()  # Close the current figure to free memory
+            
+            print(f"Plot saved to {filename}")
 
 
 if __name__ == "__main__":
