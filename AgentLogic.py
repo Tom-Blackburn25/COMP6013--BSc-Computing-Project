@@ -292,70 +292,18 @@ class Agentlogic:
 
     def decide_move_or_stay(self, agent):
         currentLoc = agent['current_location']
-        Base_moving_durability= {
-            1: 25,  # Pantry
-            2: 12,  # Retail Shop
-            3: 2,  # East Courtyard
-            4: 30,  # Palace inside 1
-            5: 10,  # Stables Exhibition
-            6: 30,  # Stables Cafe
-            7: 25,  # Churchill Exhibition
-            8: 1,  # Flagstaff Arch
-            9: 1,  # Clock Arch
-            10: 60,  # Retail to CV
-            11: 3,  # Retail Toilet
-            12: 35,  # Palace Inside 2
-            13: 7,  # Palace Courtyard
-            14: 3,  # Churchill Male Toilet
-            15: 3,  # Churchill Female Toilet
-            16: 60,  # Formal Gardens
-            17: 2,  # West Courtyard
-            18: 3,  # Stables Male toilet
-            19: 3,  # Stables Female toilet
-            20: 30  # East courtyard Seating
-        }
-        Kvalues={
-            1: 25,  # Pantry
-            2: 12,  # Retail Shop
-            3: 2,  # East Courtyard
-            4: 30,  # Palace inside 1
-            5: 10,  # Stables Exhibition
-            6: 30,  # Stables Cafe
-            7: 25,  # Churchill Exhibition
-            8: 1,  # Flagstaff Arch
-            9: 1,  # Clock Arch
-            10: 60,  # Retail to CV
-            11: 3,  # Retail Toilet
-            12: 35,  # Palace Inside 2
-            13: 7,  # Palace Courtyard
-            14: 3,  # Churchill Male Toilet
-            15: 3,  # Churchill Female Toilet
-            16: 60,  # Formal Gardens
-            17: 2,  # West Courtyard
-            18: 3,  # Stables Male toilet
-            19: 3,  # Stables Female toilet
-            20: 30  # East courtyard Seating
+        
 
-        }
-
-        if currentLoc in Base_moving_durability:
-            mean_duration = Base_moving_durability[currentLoc]
-            # Shape parameter (k) and scale parameter (theta)
-            k = 2
-            theta = 5
-            # Generate a random duration from gamma distribution
-            stay_duration = np.random.gamma(k, theta)
-            # Adjust the mean of the distribution
-            stay_duration *= mean_duration / np.mean(stay_duration)
-            print(stay_duration)
-            self.stay_durations[currentLoc].append(stay_duration)
-            return stay_duration
-
+        
         time_counter = agent['time_counter']
         random_factor = random.uniform(0, 0.15)
         total_factor = time_counter * random_factor
         return total_factor > 0.5
     
+    def stay_in_location(self, agent):
+        currentduration = agent['planned_duration']
+        currentduration -= 1
+        return currentduration
 
 
 
@@ -363,12 +311,115 @@ class Agentlogic:
 
 
 
+    def overcrowededcheck(self,node, numofagents):
+        
+        overcrowded_levels={
+            1: 40,  # Pantry
+            2: 40,  # Retail Shop
+            3: 100,  # East Courtyard
+            4: 40,  # Palace inside 1
+            5: 20,  # Stables Exhibition
+            6: 60,  # Stables Cafe
+            7: 30,  # Churchill Exhibition
+            8: 40,  # Flagstaff Arch
+            9: 20,  # Clock Arch
+            10: 5,  # Retail to CV
+            11: 10,  # Retail Toilet
+            12: 50,  # Palace Inside 2
+            13: 80,  # Palace Courtyard
+            14: 5,  # Churchill Male Toilet
+            15: 5,  # Churchill Female Toilet
+            16: 60,  # Formal Gardens
+            17: 30,  # West Courtyard
+            18: 5,  # Stables Male toilet
+            19: 5,  # Stables Female toilet
+            20: 15  # East courtyard Seating
+
+        }
+
+        if node in overcrowded_levels:
+            overcrowded_level = overcrowded_levels[node]
+            if numofagents <= overcrowded_level:
+                return 0  # Not overcrowded
+            elif numofagents < 2 * overcrowded_level:
+                # Scale from 0 to 0.9 as it gets closer to double the overcrowded level
+                return 0.9 * ((numofagents - overcrowded_level) / overcrowded_level)
+            else:
+                return 0.9  # Cap at 0.9 for anything over double the overcrowdedness level
+        else:
+            return 0
 
 
 
-    def get_stay_durations(self):
-        return self.stay_durations
+    def decide_duration(self, agent):
+        currentLoc = agent['current_location']
+        Base_durability= {
+            1: 25,  # Pantry
+            2: 12,  # Retail Shop
+            3: 2,  # East Courtyard
+            4: 30,  # Palace inside 1
+            5: 10,  # Stables Exhibition
+            6: 30,  # Stables Cafe
+            7: 25,  # Churchill Exhibition
+            8: 1,  # Flagstaff Arch
+            9: 1,  # Clock Arch
+            10: 60,  # Retail to CV
+            11: 3,  # Retail Toilet
+            12: 35,  # Palace Inside 2
+            13: 7,  # Palace Courtyard
+            14: 3,  # Churchill Male Toilet
+            15: 3,  # Churchill Female Toilet
+            16: 60,  # Formal Gardens
+            17: 2,  # West Courtyard
+            18: 3,  # Stables Male toilet
+            19: 3,  # Stables Female toilet
+            20: 30  # East courtyard Seating
+        }
+        # Shape parameter (k) for gamma distribution
+        k = self.get_k_value(currentLoc)
+        
+        # Calculate stay duration using gamma distribution
+        mean_duration = Base_durability[currentLoc]
+        theta = mean_duration / k
+        stay_duration = np.random.gamma(k, theta)
+        print(stay_duration)
+        self.stay_durations[currentLoc].append(stay_duration)
+        return stay_duration
     
+        
+
+
+
+    def get_stay_durations(self,node):
+
+        return self.stay_durations.get(node, [])
+    
+    def get_k_value(self, node):
+        # Dictionary containing k values for each node
+        Kvalues = {
+            1: 25,  # Pantry
+            2: 12,  # Retail Shop
+            3: 2,   # East Courtyard
+            4: 30,  # Palace inside 1
+            5: 10,  # Stables Exhibition
+            6: 30,  # Stables Cafe
+            7: 25,  # Churchill Exhibition
+            8: 1,   # Flagstaff Arch
+            9: 1,   # Clock Arch
+            10: 60, # Retail to CV
+            11: 3,  # Retail Toilet
+            12: 35, # Palace Inside 2
+            13: 7,  # Palace Courtyard
+            14: 3,  # Churchill Male Toilet
+            15: 3,  # Churchill Female Toilet
+            16: 60, # Formal Gardens
+            17: 2,  # West Courtyard
+            18: 3,  # Stables Male toilet
+            19: 3,  # Stables Female toilet
+            20: 30  # East courtyard Seating
+        }
+        
+        return Kvalues[node]
 
     
 

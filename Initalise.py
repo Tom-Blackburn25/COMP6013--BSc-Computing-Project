@@ -202,12 +202,16 @@ class AgentSimulation:
                             
                             agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
                             print("Agent:", agent['id'] ,"is routing to" , target_location)
-                        
-                    
+                            agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                            
 
                             agent['time_counter'] += 1
                         
                         else:
+                            if agent['planned_duration'] > agent['time_counter']:
+                                numofagents = agents_on_nodes[node]
+                                overcrowededScore = self.agent_logic.overcrowededcheck(node,numofagents)
+                                
                             should_move = self.agent_logic.decide_move_or_stay(agent)
                             
                             if agent['leaving'] == 1 and agent['current_location'] == 8:
@@ -318,12 +322,12 @@ class AgentSimulation:
 
     def plot_distribution(self):
         for node, label in self.node_info.items():
-            durations = self.agent_logic.get_stay_durations()
+            durations = self.agent_logic.get_stay_durations(node)
 
             # Plot histogram
-            plt.hist(durations, bins=20, density=True, alpha=0.7, color='blue')
+            plt.hist(durations, bins=20, alpha=0.7, color='blue')
             plt.xlabel('Stay Duration')
-            plt.ylabel('Probability Density')
+            plt.ylabel('frequency')
             plt.title(f'Distribution of Stay Durations for Node {label}')
             plt.show()
         
