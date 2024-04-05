@@ -158,9 +158,14 @@ class AgentSimulation:
 
             if step % 60 == 0:
                 distributed_agents = self.distribute_agents(step)
+            
 
             if distributed_agents is not None:
                 agents_to_add = distributed_agents[step % 60]
+                if step > 480:
+                # Scale from 1 to 0 between steps 480 and 510 to reduce the flow of people in the last half an hoiur organicly
+                    scaling_factor = max(0, 1 - (step - 480) / (510 - 480))
+                    agents_to_add = round(agents_to_add * scaling_factor)
                 agent_id_setter = self.add_agents(agents_to_add, agent_id_setter)
 
 
@@ -188,7 +193,7 @@ class AgentSimulation:
                         
 
                         agent_location = self.agent_logic.get_agent_location(agent['id'])
-                        if not agent['Apath']:
+                        if not agent['Apath']: #no path selected
                             visitedNodes = []
 
                             for node, count in agent['visited_count'].items():
@@ -202,18 +207,19 @@ class AgentSimulation:
                             
                             agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)
                             print("Agent:", agent['id'] ,"is routing to" , target_location)
-                            agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                            agent['planned_duration'] = self.agent_logic.decide_duration(agent,step)
                             print(agent['planned_duration'])
 
                             agent['time_counter'] += 1
                         
-                        else:
+                        else: # has a path
                             
                             if agent['leaving'] == 1 and agent['current_location'] == 8:
                                 self.agent_logic.remove_agent_from_graph(agent)
                             if agent['planned_duration'] > agent['time_counter']:
                                 numofagents = agents_on_nodes[node]
                                 overcrowdedScore = self.agent_logic.overcrowededcheck(node,numofagents)
+                                
                                 move_or_stayduetoovercrowd = self.agent_logic.decide_move_or_stay_crowd_check(agent,overcrowdedScore)
                                 if move_or_stayduetoovercrowd:
                                     print("decided to move because of overcrowdedness")
@@ -224,7 +230,7 @@ class AgentSimulation:
 
                                             agent["current_location"] = Apath[1]
                                             agent["Apath"] = Apath[2:]
-                                            agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                                            agent['planned_duration'] = self.agent_logic.decide_duration(agent,step)
                                         else:
                                             target_location = self.agent_logic.decide_new_target_location(agent, step, visitedNodes)
                                         
@@ -232,7 +238,7 @@ class AgentSimulation:
                                                 agent['leaving'] = 1
                                             agent_location = agent["current_location"]
                                             agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)   
-                                            agent['planned_duration'] = self.agent_logic.decide_duration(agent)                                 
+                                            agent['planned_duration'] = self.agent_logic.decide_duration(agent,step)                                 
                                 
                                     
                                     
@@ -241,7 +247,7 @@ class AgentSimulation:
                                         self.agent_logic.update_last_node(agent['id'], agent["current_location"])
                                         agent["current_location"] = Apath[0]
                                         agent['Apath'] = Apath[1:]
-                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent,step)
                                     agent['time_counter'] = 0
                                     
                                 agent['time_counter'] +=1
@@ -257,7 +263,7 @@ class AgentSimulation:
 
                                         agent["current_location"] = Apath[1]
                                         agent["Apath"] = Apath[2:]
-                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent,step)
                                     else:
                                         target_location = self.agent_logic.decide_new_target_location(agent, step, visitedNodes)
                                         
@@ -265,7 +271,7 @@ class AgentSimulation:
                                             agent['leaving'] = 1
                                         agent_location = agent["current_location"]
                                         agent['Apath'] = self.agent_logic.perform_a_star_search(agent_location, target_location)   
-                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent)                                 
+                                        agent['planned_duration'] = self.agent_logic.decide_duration(agent,step)                                 
                                 
                                     
                                     
@@ -274,7 +280,7 @@ class AgentSimulation:
                                     self.agent_logic.update_last_node(agent['id'], agent["current_location"])
                                     agent["current_location"] = Apath[0]
                                     agent['Apath'] = Apath[1:]
-                                    agent['planned_duration'] = self.agent_logic.decide_duration(agent)
+                                    agent['planned_duration'] = self.agent_logic.decide_duration(agent,step)
                                 agent['time_counter'] = 0 
                                     
                             
@@ -292,7 +298,7 @@ class AgentSimulation:
 
 
 
-            if step % 20 == 0:
+            if step % 20 == 0 or step == 509:
                 self.save_graph(step)
 
         

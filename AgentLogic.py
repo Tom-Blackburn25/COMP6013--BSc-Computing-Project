@@ -257,10 +257,12 @@ class Agentlogic:
         
     # Leave Palace decision logic
         
-        time_in_palace_factor = agent['time_in_palace'] / 210  # Normalize time in palace to range 0-1
+        time_in_palace_factor = agent['time_in_palace'] / 210  # Normalize time in palace to range 0-1 based on spending 3 and a half hour in palace
         stepchance = 0
         if step > 300:
-             stepchance = ((step - 300) / 300)
+            target_step = 510
+            scaling_factor = 1 / (target_step - 300)
+            stepchance = min(1, (step - 300) * scaling_factor)
 
         total_chance = time_in_palace_factor + stepchance
         
@@ -299,6 +301,16 @@ class Agentlogic:
         random_factor = random.uniform(0, 0.15)
         total_factor = time_counter * random_factor
         return total_factor > 0.5
+    
+
+
+
+
+
+
+
+
+    
     
     def stay_in_location(self, agent):
         currentduration = agent['planned_duration']
@@ -366,8 +378,9 @@ class Agentlogic:
 
 
 
-    def decide_duration(self, agent):
+    def decide_duration(self, agent, step):
         currentLoc = agent['current_location']
+        currentstep = step
         Base_durability= {
             1: 25,  # Pantry
             2: 12,  # Retail Shop
@@ -397,13 +410,22 @@ class Agentlogic:
         mean_duration = Base_durability[currentLoc]
         theta = mean_duration / k
         stay_duration = max(1, np.random.gamma(k, theta))
-        
+        palaceclosingcheck = self.palace_closing_check(currentstep)
+        stay_duration *= palaceclosingcheck
+        stay_duration = max(1, stay_duration)
         self.stay_durations[currentLoc].append(stay_duration)
         return stay_duration
     
         
 
-
+    def palace_closing_check(self, step):
+        if step <= 300:
+            return 1
+        elif step >= 480:
+            return 0
+        else:
+            # Scale the step value from the range [300, 480] (half an hour before close) to the range [1, 0.1]
+            return 1 - (step - 300) / (480 - 300) * (1 - 0.1)
 
     def get_stay_durations(self,node):
 
