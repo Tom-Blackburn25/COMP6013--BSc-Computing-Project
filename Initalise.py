@@ -346,7 +346,6 @@ class AgentSimulation:
         # Create a plot for each node
         for node in nodes:
             agents_counts = [data[node] for data in self.time_series_data]
-            print(agents_counts , "for node" , node)
             plt.plot(time_steps, agents_counts)
             plt.xlabel("Time Step")
             plt.ylabel("Number of Agents")
@@ -429,24 +428,20 @@ class AgentSimulation:
     def compare_timeseries(self):
         # Prepare real data
         realdata = realdataresults.convert_time_to_time_step_by_zone(self.comparedatafile)
-        
+        node_differences = {node: [] for node in self.node_info.values()}
         if not os.path.exists("comparison_time_series_plots"):
             os.makedirs("comparison_time_series_plots")
         # Iterate over common zones
         common_zones = set(realdata.keys()) & set(self.node_info.values())
+        
         for zone in common_zones:
             # Get real and simulation time series data for the zone
-
-        
             zone_number = None
-            print(zone)
-            real_time_series = realdata[zone]
-            print(real_time_series)
             for num, name in self.node_info.items():
                 if name == zone:
                     zone_number = num
                     break 
-
+                
             # Get simulated time series data for the zone
             simulated_time_series = self.comaprison_time_series.get(zone_number, {})
             
@@ -490,7 +485,15 @@ class AgentSimulation:
             plot_filename = f"comparison_time_series_plots/{zone}_difference_plot.png"
             plt.savefig(plot_filename)
             plt.close()
-                
+            node_name = self.node_info[zone_number]
+            node_differences[node_name].extend(difference)
+        average_differences = {}
+        for node, differences in node_differences.items():
+            if differences:  # Check if differences list is not empty
+                average_differences[node] = sum(differences) / len(differences)
+        
+        return average_differences
+            
 
 
 
@@ -524,8 +527,8 @@ if __name__ == "__main__":
     simulation.run_simulation()
     simulation.plot_time_series()
     simulation.plot_distribution()
-    simulation.compare_timeseries()
-    
+    averagedifferences = simulation.compare_timeseries()
+    print(averagedifferences)
     # Tests if the agent locations are correct
     agent_id_to_find = 5
     agent_location = simulation.agent_logic.get_agent_location(agent_id_to_find)
