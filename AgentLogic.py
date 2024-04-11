@@ -327,7 +327,8 @@ class Agentlogic:
         
         # Multiply by the overcrowdedness score
         score = time_ratio * overcrowded
-        
+        if overcrowded == 1:
+            score = 1
         # Generate a random number between 0 and 1
         random_value = random.uniform(0, 1)
         
@@ -363,16 +364,39 @@ class Agentlogic:
             20: 15  # East courtyard Seating
 
         }
+        max_levels={
+            1: 60,  # Pantry
+            2: 60,  # Retail Shop
+            3: 200,  # East Courtyard
+            4: 60,  # Palace inside 1
+            5: 80,  # Stables Exhibition
+            6: 120,  # Stables Cafe
+            7: 50,  # Churchill Exhibition
+            8: 40,  # Flagstaff Arch
+            9: 30,  # Clock Arch
+            10: 5,  # Retail to CV
+            11: 12,  # Retail Toilet
+            12: 80,  # Palace Inside 2
+            13: 100,  # Palace Courtyard
+            14: 12,  # Churchill Male Toilet
+            15: 12,  # Churchill Female Toilet
+            16: 120,  # Formal Gardens
+            17: 60,  # West Courtyard
+            18: 12,  # Stables Male toilet
+            19: 12,  # Stables Female toilet
+            20: 40  # East courtyard Seating
+
+        }
 
         if node in overcrowded_levels:
             overcrowded_level = overcrowded_levels[node]
             if numofagents <= overcrowded_level:
                 return 0  # Not overcrowded
-            elif numofagents < 2 * overcrowded_level:
-                # Scale from 0 to 0.9 as it gets closer to double the overcrowded level
-                return 0.9 * ((numofagents - overcrowded_level) / overcrowded_level)
+            elif numofagents < max_levels[node]:
+                # Scale from 0 to 0.9 as it gets closer to the max level
+                return 0.9 * ((numofagents - overcrowded_level) / (max_levels[node] - overcrowded_level))
             else:
-                return 0.9  # Cap at 0.9 for anything over double the overcrowdedness level
+                return 1  # Return 1 if reaching the max level
         else:
             return 0
 

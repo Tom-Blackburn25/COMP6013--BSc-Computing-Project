@@ -4,11 +4,12 @@ import os
 import sys
 from SaveImages import FileLocator
 from AgentLogic import Agentlogic
+from comparison import realdataresults
 import matplotlib.pyplot as plt
 import numpy as np
 
 class AgentSimulation:
-    def __init__(self, num_agents, num_steps, outputfolder):
+    def __init__(self, num_agents, num_steps, outputfolder, comparecsv):
         self.Graphnetwork = nx.Graph()
         self.node_info = {
             1: "Pantry",
@@ -83,13 +84,14 @@ class AgentSimulation:
         }
 
 
-
+        self.comparedatafile = comparecsv
         self.num_steps = num_steps
         self.total_agents = num_agents
         self.outputfolder = outputfolder
         self.pos = self.node_positions
         self.agent_logic = Agentlogic(self.Graphnetwork)  # Create an instance of Agentlogic
         self.time_series_data = []
+        self.comaprison_time_series = {}
 
     
         
@@ -152,6 +154,12 @@ class AgentSimulation:
     def run_simulation(self):
         agent_id_setter = 0
         distributed_agents = None
+        steps_to_save = realdataresults.get_unique_time_steps(self.comparedatafile)
+        zones_to_compare = realdataresults.get_unique_zones(self.comparedatafile)
+        #creates a list of the node names to numbers
+        node_names_to_numbers = {node_name: node_id for node_id, node_name in self.node_info.items()}
+        # Create a list of corresponding node numbers for the zones to compare
+        nodes_to_compare = [node_names_to_numbers[zone] for zone in zones_to_compare if zone in node_names_to_numbers]
         for step in range(self.num_steps):
             print("\n")
             print(f"Step {step}:")
@@ -212,7 +220,7 @@ class AgentSimulation:
 
                             agent['time_counter'] += 1
                         
-                        else: # has a path
+                        else: # Has a path
                             
                             if agent['leaving'] == 1 and agent['current_location'] == 8:
                                 self.agent_logic.remove_agent_from_graph(agent)
@@ -289,6 +297,18 @@ class AgentSimulation:
             self.time_series_data.append(agents_on_nodes.copy())
 
 
+            if step in steps_to_save:
+                # Iterate over the nodes
+                for node in nodes_to_compare:
+                    agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
+                    # Check if the node is already in the comparison time series dictionary
+                    if node not in self.comaprison_time_series:
+                        self.comaprison_time_series[node] = {}  # Initialize an empty dictionary for the node if it's not present
+                    # Store the number of agents on the node for the current time step
+                    self.comaprison_time_series[node][step] = len(agents_on_node)
+
+
+
             for node in self.Graphnetwork.nodes():
                 agents_on_node = [agent for agent in self.Graphnetwork.nodes[node]['agents'] if agent['current_location'] == node]
                 print(f"Node {node}: {len(agents_on_node)} agents")
@@ -302,7 +322,20 @@ class AgentSimulation:
                 self.save_graph(step)
 
         
-                
+    def comparetimeseries(self):
+        realdata = realdataresults.convert_time_to_time_step_by_zone(self.comparedatafile)
+        for zone, time_step_data in realdata.items():
+            footfall_list = []  # List to store footfall data for the current zone
+            
+            # Iterate over time steps and footfall data for the current zone
+            for time_step, footfall in time_step_data.items():
+                footfall_list.append(footfall)  # Append footfall data to the list
+            
+        
+
+
+
+
 
 
     def plot_time_series(self):
@@ -313,6 +346,7 @@ class AgentSimulation:
         # Create a plot for each node
         for node in nodes:
             agents_counts = [data[node] for data in self.time_series_data]
+            print(agents_counts , "for node" , node)
             plt.plot(time_steps, agents_counts)
             plt.xlabel("Time Step")
             plt.ylabel("Number of Agents")
@@ -384,19 +418,113 @@ class AgentSimulation:
             print(f"Plot saved to {filename}")
 
 
+
+
+
+
+
+
+    
+
+    def compare_timeseries(self):
+        # Prepare real data
+        realdata = realdataresults.convert_time_to_time_step_by_zone(self.comparedatafile)
+        
+        if not os.path.exists("comparison_time_series_plots"):
+            os.makedirs("comparison_time_series_plots")
+        # Iterate over common zones
+        common_zones = set(realdata.keys()) & set(self.node_info.values())
+        for zone in common_zones:
+            # Get real and simulation time series data for the zone
+
+        
+            zone_number = None
+            print(zone)
+            real_time_series = realdata[zone]
+            print(real_time_series)
+            for num, name in self.node_info.items():
+                if name == zone:
+                    zone_number = num
+                    break 
+
+            # Get simulated time series data for the zone
+            simulated_time_series = self.comaprison_time_series.get(zone_number, {})
+            
+            # Extract time steps and agent counts for the simulated data
+            simulated_time_steps = list(simulated_time_series.keys())
+            simulated_agent_counts = list(simulated_time_series.values())
+            plt.figure()
+            # Plot the simulated time series data
+            plt.plot(simulated_time_steps, simulated_agent_counts, label=f"Simulated - {zone}")
+            
+            # Plot the real time series data (if available)
+            real_time_steps = list(realdata[zone].keys())
+            real_agent_counts = list(realdata[zone].values())
+            plt.plot(real_time_steps, real_agent_counts, label=f"Real - {zone}", linestyle='--')
+            
+            # Add labels and legend for each zone
+            plt.xlabel("Time Step")
+            plt.ylabel("Number of Agents")
+            plt.title(f"Comparison of Real and Simulated Data for Zone: {zone}")
+            plt.legend()
+            
+            # Save the plot for the current zone
+            plot_filename = f"comparison_time_series_plots/{zone}_plot.png"
+            plt.savefig(plot_filename)
+            plt.close()
+
+            difference = [abs(simulated_agent_counts[i] - real_agent_counts[i]) for i in range(min(len(simulated_agent_counts), len(real_agent_counts)))]
+            
+            plt.figure()
+
+            # Plot the difference
+            plt.plot(real_time_steps[:len(difference)], difference, label=f"Difference - {zone}")
+            
+            # Add labels and legend for each zone
+            plt.xlabel("Time Step")
+            plt.ylabel("Difference in Number of Agents (Simulated - Real)")
+            plt.title(f"Difference in Agent Counts between Simulated and Real Data for Zone: {zone}")
+            plt.legend()
+            
+            # Save the plot for the current zone
+            plot_filename = f"comparison_time_series_plots/{zone}_difference_plot.png"
+            plt.savefig(plot_filename)
+            plt.close()
+                
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
     num_agents = 100 #Total avg People per Day 3837  /   100 is testing number
     num_steps = 510 # 8.5 hours of visiting times starting at 9 ending 5:30
-
+    csv_file_path = '2024-01-06-kf.csv'
     filelocation = FileLocator.decide_fileLocation("InitalisePrint", num_steps)
     if filelocation is None or filelocation == "":
         print("Error: filelocator is empty. Exiting program.")
         sys.exit()
-    simulation = AgentSimulation(num_agents, num_steps, filelocation)
+    simulation = AgentSimulation(num_agents, num_steps, filelocation, csv_file_path)
     
     simulation.run_simulation()
     simulation.plot_time_series()
     simulation.plot_distribution()
+    simulation.compare_timeseries()
     
     # Tests if the agent locations are correct
     agent_id_to_find = 5

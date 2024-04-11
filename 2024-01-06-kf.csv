@@ -1,0 +1,1340 @@
+﻿Time,zone_id,no_of_ppl,zone_name
+09:00:00,1,0,Pantry
+09:05:00,1,0,Pantry
+09:11:00,1,0,Pantry
+09:16:00,1,0,Pantry
+09:21:00,1,0,Pantry
+09:26:00,1,0,Pantry
+09:32:00,1,0,Pantry
+09:37:00,1,0,Pantry
+09:42:00,1,1,Pantry
+09:47:00,1,3,Pantry
+09:52:00,1,3,Pantry
+09:58:00,1,4,Pantry
+10:03:00,1,4,Pantry
+10:08:00,1,7,Pantry
+10:13:00,1,5,Pantry
+10:19:00,1,8,Pantry
+10:24:00,1,6,Pantry
+10:29:00,1,6,Pantry
+10:34:00,1,7,Pantry
+10:40:00,1,9,Pantry
+10:45:00,1,12,Pantry
+10:50:00,1,10,Pantry
+10:55:00,1,10,Pantry
+11:00:00,1,10,Pantry
+11:06:00,1,10,Pantry
+11:11:00,1,11,Pantry
+11:16:00,1,15,Pantry
+11:21:00,1,16,Pantry
+11:27:00,1,20,Pantry
+11:32:00,1,17,Pantry
+11:37:00,1,13,Pantry
+11:42:00,1,11,Pantry
+11:48:00,1,10,Pantry
+11:53:00,1,14,Pantry
+11:58:00,1,15,Pantry
+12:03:00,1,17,Pantry
+12:09:00,1,15,Pantry
+12:14:00,1,18,Pantry
+12:19:00,1,16,Pantry
+12:24:00,1,14,Pantry
+12:30:00,1,17,Pantry
+12:35:00,1,16,Pantry
+12:40:00,1,18,Pantry
+12:45:00,1,15,Pantry
+12:51:00,1,17,Pantry
+12:56:00,1,17,Pantry
+13:01:00,1,17,Pantry
+13:06:00,1,22,Pantry
+13:12:00,1,20,Pantry
+13:17:00,1,24,Pantry
+13:22:00,1,23,Pantry
+13:27:00,1,20,Pantry
+13:33:00,1,21,Pantry
+13:38:00,1,17,Pantry
+13:43:00,1,16,Pantry
+13:48:00,1,21,Pantry
+13:54:00,1,23,Pantry
+13:59:00,1,19,Pantry
+14:04:00,1,19,Pantry
+14:09:00,1,21,Pantry
+14:15:00,1,16,Pantry
+14:20:00,1,16,Pantry
+14:25:00,1,18,Pantry
+14:30:00,1,24,Pantry
+14:36:00,1,21,Pantry
+14:41:00,1,17,Pantry
+14:46:00,1,17,Pantry
+14:51:00,1,15,Pantry
+14:57:00,1,16,Pantry
+15:02:00,1,15,Pantry
+15:07:00,1,16,Pantry
+15:12:00,1,16,Pantry
+15:18:00,1,18,Pantry
+15:23:00,1,15,Pantry
+15:28:00,1,17,Pantry
+15:33:00,1,17,Pantry
+15:39:00,1,23,Pantry
+15:44:00,1,22,Pantry
+15:49:00,1,20,Pantry
+15:54:00,1,17,Pantry
+16:00:00,1,13,Pantry
+16:05:00,1,13,Pantry
+16:10:00,1,15,Pantry
+16:15:00,1,12,Pantry
+16:21:00,1,12,Pantry
+16:26:00,1,13,Pantry
+16:31:00,1,11,Pantry
+16:36:00,1,9,Pantry
+16:42:00,1,10,Pantry
+16:47:00,1,7,Pantry
+16:52:00,1,5,Pantry
+16:57:00,1,5,Pantry
+17:03:00,1,3,Pantry
+17:08:00,1,3,Pantry
+17:13:00,1,3,Pantry
+17:18:00,1,2,Pantry
+17:24:00,1,2,Pantry
+17:29:00,1,2,Pantry
+17:34:00,1,2,Pantry
+17:40:00,1,2,Pantry
+17:45:00,1,2,Pantry
+17:50:00,1,1,Pantry
+17:55:00,1,1,Pantry
+09:00:00,2,0,Retail Shop
+09:05:00,2,0,Retail Shop
+09:11:00,2,0,Retail Shop
+09:16:00,2,0,Retail Shop
+09:21:00,2,1,Retail Shop
+09:26:00,2,1,Retail Shop
+09:32:00,2,1,Retail Shop
+09:37:00,2,3,Retail Shop
+09:42:00,2,4,Retail Shop
+09:47:00,2,8,Retail Shop
+09:52:00,2,11,Retail Shop
+09:58:00,2,11,Retail Shop
+10:03:00,2,13,Retail Shop
+10:08:00,2,15,Retail Shop
+10:13:00,2,14,Retail Shop
+10:19:00,2,16,Retail Shop
+10:24:00,2,18,Retail Shop
+10:29:00,2,20,Retail Shop
+10:34:00,2,30,Retail Shop
+10:40:00,2,33,Retail Shop
+10:45:00,2,29,Retail Shop
+10:50:00,2,27,Retail Shop
+10:55:00,2,27,Retail Shop
+11:00:00,2,28,Retail Shop
+11:06:00,2,25,Retail Shop
+11:11:00,2,29,Retail Shop
+11:16:00,2,36,Retail Shop
+11:21:00,2,45,Retail Shop
+11:27:00,2,41,Retail Shop
+11:32:00,2,43,Retail Shop
+11:37:00,2,41,Retail Shop
+11:42:00,2,44,Retail Shop
+11:48:00,2,35,Retail Shop
+11:53:00,2,35,Retail Shop
+11:58:00,2,42,Retail Shop
+12:03:00,2,58,Retail Shop
+12:09:00,2,61,Retail Shop
+12:14:00,2,62,Retail Shop
+12:19:00,2,51,Retail Shop
+12:24:00,2,49,Retail Shop
+12:30:00,2,54,Retail Shop
+12:35:00,2,53,Retail Shop
+12:40:00,2,52,Retail Shop
+12:45:00,2,52,Retail Shop
+12:51:00,2,60,Retail Shop
+12:56:00,2,59,Retail Shop
+13:01:00,2,65,Retail Shop
+13:06:00,2,72,Retail Shop
+13:12:00,2,71,Retail Shop
+13:17:00,2,77,Retail Shop
+13:22:00,2,79,Retail Shop
+13:27:00,2,76,Retail Shop
+13:33:00,2,59,Retail Shop
+13:38:00,2,56,Retail Shop
+13:43:00,2,53,Retail Shop
+13:48:00,2,65,Retail Shop
+13:54:00,2,65,Retail Shop
+13:59:00,2,63,Retail Shop
+14:04:00,2,67,Retail Shop
+14:09:00,2,68,Retail Shop
+14:15:00,2,67,Retail Shop
+14:20:00,2,55,Retail Shop
+14:25:00,2,58,Retail Shop
+14:30:00,2,58,Retail Shop
+14:36:00,2,57,Retail Shop
+14:41:00,2,52,Retail Shop
+14:46:00,2,53,Retail Shop
+14:51:00,2,58,Retail Shop
+14:57:00,2,57,Retail Shop
+15:02:00,2,62,Retail Shop
+15:07:00,2,63,Retail Shop
+15:12:00,2,62,Retail Shop
+15:18:00,2,62,Retail Shop
+15:23:00,2,59,Retail Shop
+15:28:00,2,68,Retail Shop
+15:33:00,2,61,Retail Shop
+15:39:00,2,63,Retail Shop
+15:44:00,2,59,Retail Shop
+15:49:00,2,59,Retail Shop
+15:54:00,2,60,Retail Shop
+16:00:00,2,54,Retail Shop
+16:05:00,2,54,Retail Shop
+16:10:00,2,52,Retail Shop
+16:15:00,2,50,Retail Shop
+16:21:00,2,46,Retail Shop
+16:26:00,2,51,Retail Shop
+16:31:00,2,46,Retail Shop
+16:36:00,2,33,Retail Shop
+16:42:00,2,31,Retail Shop
+16:47:00,2,27,Retail Shop
+16:52:00,2,16,Retail Shop
+16:57:00,2,14,Retail Shop
+17:03:00,2,12,Retail Shop
+17:08:00,2,11,Retail Shop
+17:13:00,2,11,Retail Shop
+17:18:00,2,6,Retail Shop
+17:24:00,2,5,Retail Shop
+17:29:00,2,5,Retail Shop
+17:34:00,2,5,Retail Shop
+17:40:00,2,5,Retail Shop
+17:45:00,2,5,Retail Shop
+17:50:00,2,5,Retail Shop
+17:55:00,2,5,Retail Shop
+09:00:00,3,0,East Courtyard
+09:05:00,3,1,East Courtyard
+09:11:00,3,1,East Courtyard
+09:16:00,3,1,East Courtyard
+09:21:00,3,2,East Courtyard
+09:26:00,3,1,East Courtyard
+09:32:00,3,2,East Courtyard
+09:37:00,3,2,East Courtyard
+09:42:00,3,4,East Courtyard
+09:47:00,3,3,East Courtyard
+09:52:00,3,4,East Courtyard
+09:58:00,3,6,East Courtyard
+10:03:00,3,9,East Courtyard
+10:08:00,3,11,East Courtyard
+10:13:00,3,10,East Courtyard
+10:19:00,3,10,East Courtyard
+10:24:00,3,12,East Courtyard
+10:29:00,3,10,East Courtyard
+10:34:00,3,12,East Courtyard
+10:40:00,3,15,East Courtyard
+10:45:00,3,19,East Courtyard
+10:50:00,3,20,East Courtyard
+10:55:00,3,20,East Courtyard
+11:00:00,3,17,East Courtyard
+11:06:00,3,17,East Courtyard
+11:11:00,3,21,East Courtyard
+11:16:00,3,29,East Courtyard
+11:21:00,3,30,East Courtyard
+11:27:00,3,25,East Courtyard
+11:32:00,3,23,East Courtyard
+11:37:00,3,22,East Courtyard
+11:42:00,3,20,East Courtyard
+11:48:00,3,18,East Courtyard
+11:53:00,3,26,East Courtyard
+11:58:00,3,31,East Courtyard
+12:03:00,3,34,East Courtyard
+12:09:00,3,32,East Courtyard
+12:14:00,3,36,East Courtyard
+12:19:00,3,30,East Courtyard
+12:24:00,3,28,East Courtyard
+12:30:00,3,30,East Courtyard
+12:35:00,3,30,East Courtyard
+12:40:00,3,28,East Courtyard
+12:45:00,3,27,East Courtyard
+12:51:00,3,28,East Courtyard
+12:56:00,3,28,East Courtyard
+13:01:00,3,29,East Courtyard
+13:06:00,3,34,East Courtyard
+13:12:00,3,34,East Courtyard
+13:17:00,3,37,East Courtyard
+13:22:00,3,36,East Courtyard
+13:27:00,3,37,East Courtyard
+13:33:00,3,36,East Courtyard
+13:38:00,3,32,East Courtyard
+13:43:00,3,31,East Courtyard
+13:48:00,3,33,East Courtyard
+13:54:00,3,34,East Courtyard
+13:59:00,3,32,East Courtyard
+14:04:00,3,35,East Courtyard
+14:09:00,3,35,East Courtyard
+14:15:00,3,31,East Courtyard
+14:20:00,3,29,East Courtyard
+14:25:00,3,34,East Courtyard
+14:30:00,3,36,East Courtyard
+14:36:00,3,35,East Courtyard
+14:41:00,3,29,East Courtyard
+14:46:00,3,30,East Courtyard
+14:51:00,3,29,East Courtyard
+14:57:00,3,29,East Courtyard
+15:02:00,3,31,East Courtyard
+15:07:00,3,29,East Courtyard
+15:12:00,3,28,East Courtyard
+15:18:00,3,30,East Courtyard
+15:23:00,3,30,East Courtyard
+15:28:00,3,36,East Courtyard
+15:33:00,3,37,East Courtyard
+15:39:00,3,38,East Courtyard
+15:44:00,3,33,East Courtyard
+15:49:00,3,35,East Courtyard
+15:54:00,3,34,East Courtyard
+16:00:00,3,24,East Courtyard
+16:05:00,3,27,East Courtyard
+16:10:00,3,19,East Courtyard
+16:15:00,3,20,East Courtyard
+16:21:00,3,15,East Courtyard
+16:26:00,3,16,East Courtyard
+16:31:00,3,17,East Courtyard
+16:36:00,3,17,East Courtyard
+16:42:00,3,16,East Courtyard
+16:47:00,3,13,East Courtyard
+16:52:00,3,11,East Courtyard
+16:57:00,3,7,East Courtyard
+17:03:00,3,6,East Courtyard
+17:08:00,3,5,East Courtyard
+17:13:00,3,5,East Courtyard
+17:18:00,3,4,East Courtyard
+17:24:00,3,4,East Courtyard
+17:29:00,3,4,East Courtyard
+17:34:00,3,4,East Courtyard
+17:40:00,3,3,East Courtyard
+17:45:00,3,3,East Courtyard
+17:50:00,3,3,East Courtyard
+17:55:00,3,3,East Courtyard
+09:00:00,4,0,Palace Inside 1
+09:05:00,4,0,Palace Inside 1
+09:11:00,4,0,Palace Inside 1
+09:16:00,4,0,Palace Inside 1
+09:21:00,4,0,Palace Inside 1
+09:26:00,4,1,Palace Inside 1
+09:32:00,4,1,Palace Inside 1
+09:37:00,4,1,Palace Inside 1
+09:42:00,4,2,Palace Inside 1
+09:47:00,4,2,Palace Inside 1
+09:52:00,4,2,Palace Inside 1
+09:58:00,4,2,Palace Inside 1
+10:03:00,4,2,Palace Inside 1
+10:08:00,4,2,Palace Inside 1
+10:13:00,4,3,Palace Inside 1
+10:19:00,4,3,Palace Inside 1
+10:24:00,4,3,Palace Inside 1
+10:29:00,4,3,Palace Inside 1
+10:34:00,4,4,Palace Inside 1
+10:40:00,4,4,Palace Inside 1
+10:45:00,4,7,Palace Inside 1
+10:50:00,4,10,Palace Inside 1
+10:55:00,4,12,Palace Inside 1
+11:00:00,4,13,Palace Inside 1
+11:06:00,4,12,Palace Inside 1
+11:11:00,4,14,Palace Inside 1
+11:16:00,4,14,Palace Inside 1
+11:21:00,4,18,Palace Inside 1
+11:27:00,4,17,Palace Inside 1
+11:32:00,4,19,Palace Inside 1
+11:37:00,4,19,Palace Inside 1
+11:42:00,4,21,Palace Inside 1
+11:48:00,4,19,Palace Inside 1
+11:53:00,4,18,Palace Inside 1
+11:58:00,4,21,Palace Inside 1
+12:03:00,4,22,Palace Inside 1
+12:09:00,4,21,Palace Inside 1
+12:14:00,4,22,Palace Inside 1
+12:19:00,4,20,Palace Inside 1
+12:24:00,4,20,Palace Inside 1
+12:30:00,4,19,Palace Inside 1
+12:35:00,4,27,Palace Inside 1
+12:40:00,4,22,Palace Inside 1
+12:45:00,4,20,Palace Inside 1
+12:51:00,4,23,Palace Inside 1
+12:56:00,4,22,Palace Inside 1
+13:01:00,4,22,Palace Inside 1
+13:06:00,4,23,Palace Inside 1
+13:12:00,4,21,Palace Inside 1
+13:17:00,4,19,Palace Inside 1
+13:22:00,4,22,Palace Inside 1
+13:27:00,4,21,Palace Inside 1
+13:33:00,4,23,Palace Inside 1
+13:38:00,4,23,Palace Inside 1
+13:43:00,4,24,Palace Inside 1
+13:48:00,4,28,Palace Inside 1
+13:54:00,4,24,Palace Inside 1
+13:59:00,4,27,Palace Inside 1
+14:04:00,4,23,Palace Inside 1
+14:09:00,4,23,Palace Inside 1
+14:15:00,4,24,Palace Inside 1
+14:20:00,4,21,Palace Inside 1
+14:25:00,4,26,Palace Inside 1
+14:30:00,4,23,Palace Inside 1
+14:36:00,4,28,Palace Inside 1
+14:41:00,4,29,Palace Inside 1
+14:46:00,4,29,Palace Inside 1
+14:51:00,4,28,Palace Inside 1
+14:57:00,4,24,Palace Inside 1
+15:02:00,4,23,Palace Inside 1
+15:07:00,4,24,Palace Inside 1
+15:12:00,4,21,Palace Inside 1
+15:18:00,4,18,Palace Inside 1
+15:23:00,4,17,Palace Inside 1
+15:28:00,4,18,Palace Inside 1
+15:33:00,4,19,Palace Inside 1
+15:39:00,4,16,Palace Inside 1
+15:44:00,4,16,Palace Inside 1
+15:49:00,4,16,Palace Inside 1
+15:54:00,4,19,Palace Inside 1
+16:00:00,4,17,Palace Inside 1
+16:05:00,4,16,Palace Inside 1
+16:10:00,4,14,Palace Inside 1
+16:15:00,4,12,Palace Inside 1
+16:21:00,4,11,Palace Inside 1
+16:26:00,4,11,Palace Inside 1
+16:31:00,4,11,Palace Inside 1
+16:36:00,4,11,Palace Inside 1
+16:42:00,4,10,Palace Inside 1
+16:47:00,4,9,Palace Inside 1
+16:52:00,4,9,Palace Inside 1
+16:57:00,4,9,Palace Inside 1
+17:03:00,4,8,Palace Inside 1
+17:08:00,4,8,Palace Inside 1
+17:13:00,4,8,Palace Inside 1
+17:18:00,4,8,Palace Inside 1
+17:24:00,4,8,Palace Inside 1
+17:29:00,4,8,Palace Inside 1
+17:34:00,4,8,Palace Inside 1
+17:40:00,4,7,Palace Inside 1
+17:45:00,4,7,Palace Inside 1
+17:50:00,4,7,Palace Inside 1
+17:55:00,4,7,Palace Inside 1
+09:00:00,5,0,Stables Exhibition
+09:05:00,5,0,Stables Exhibition
+09:11:00,5,0,Stables Exhibition
+09:16:00,5,0,Stables Exhibition
+09:21:00,5,0,Stables Exhibition
+09:26:00,5,0,Stables Exhibition
+09:32:00,5,0,Stables Exhibition
+09:37:00,5,0,Stables Exhibition
+09:42:00,5,0,Stables Exhibition
+09:47:00,5,0,Stables Exhibition
+09:52:00,5,0,Stables Exhibition
+09:58:00,5,0,Stables Exhibition
+10:03:00,5,0,Stables Exhibition
+10:08:00,5,0,Stables Exhibition
+10:13:00,5,0,Stables Exhibition
+10:19:00,5,0,Stables Exhibition
+10:24:00,5,0,Stables Exhibition
+10:29:00,5,0,Stables Exhibition
+10:34:00,5,0,Stables Exhibition
+10:40:00,5,2,Stables Exhibition
+10:45:00,5,2,Stables Exhibition
+10:50:00,5,3,Stables Exhibition
+10:55:00,5,4,Stables Exhibition
+11:00:00,5,5,Stables Exhibition
+11:06:00,5,5,Stables Exhibition
+11:11:00,5,6,Stables Exhibition
+11:16:00,5,6,Stables Exhibition
+11:21:00,5,8,Stables Exhibition
+11:27:00,5,7,Stables Exhibition
+11:32:00,5,9,Stables Exhibition
+11:37:00,5,4,Stables Exhibition
+11:42:00,5,8,Stables Exhibition
+11:48:00,5,3,Stables Exhibition
+11:53:00,5,5,Stables Exhibition
+11:58:00,5,7,Stables Exhibition
+12:03:00,5,4,Stables Exhibition
+12:09:00,5,6,Stables Exhibition
+12:14:00,5,7,Stables Exhibition
+12:19:00,5,7,Stables Exhibition
+12:24:00,5,7,Stables Exhibition
+12:30:00,5,6,Stables Exhibition
+12:35:00,5,9,Stables Exhibition
+12:40:00,5,9,Stables Exhibition
+12:45:00,5,4,Stables Exhibition
+12:51:00,5,7,Stables Exhibition
+12:56:00,5,5,Stables Exhibition
+13:01:00,5,5,Stables Exhibition
+13:06:00,5,6,Stables Exhibition
+13:12:00,5,7,Stables Exhibition
+13:17:00,5,6,Stables Exhibition
+13:22:00,5,7,Stables Exhibition
+13:27:00,5,9,Stables Exhibition
+13:33:00,5,8,Stables Exhibition
+13:38:00,5,7,Stables Exhibition
+13:43:00,5,7,Stables Exhibition
+13:48:00,5,8,Stables Exhibition
+13:54:00,5,9,Stables Exhibition
+13:59:00,5,6,Stables Exhibition
+14:04:00,5,5,Stables Exhibition
+14:09:00,5,7,Stables Exhibition
+14:15:00,5,5,Stables Exhibition
+14:20:00,5,7,Stables Exhibition
+14:25:00,5,6,Stables Exhibition
+14:30:00,5,6,Stables Exhibition
+14:36:00,5,5,Stables Exhibition
+14:41:00,5,10,Stables Exhibition
+14:46:00,5,8,Stables Exhibition
+14:51:00,5,9,Stables Exhibition
+14:57:00,5,11,Stables Exhibition
+15:02:00,5,9,Stables Exhibition
+15:07:00,5,10,Stables Exhibition
+15:12:00,5,9,Stables Exhibition
+15:18:00,5,9,Stables Exhibition
+15:23:00,5,8,Stables Exhibition
+15:28:00,5,8,Stables Exhibition
+15:33:00,5,7,Stables Exhibition
+15:39:00,5,6,Stables Exhibition
+15:44:00,5,7,Stables Exhibition
+15:49:00,5,7,Stables Exhibition
+15:54:00,5,5,Stables Exhibition
+16:00:00,5,5,Stables Exhibition
+16:05:00,5,5,Stables Exhibition
+16:10:00,5,4,Stables Exhibition
+16:15:00,5,4,Stables Exhibition
+16:21:00,5,4,Stables Exhibition
+16:26:00,5,3,Stables Exhibition
+16:31:00,5,4,Stables Exhibition
+16:36:00,5,4,Stables Exhibition
+16:42:00,5,3,Stables Exhibition
+16:47:00,5,3,Stables Exhibition
+16:52:00,5,3,Stables Exhibition
+16:57:00,5,3,Stables Exhibition
+17:03:00,5,3,Stables Exhibition
+17:08:00,5,3,Stables Exhibition
+17:13:00,5,3,Stables Exhibition
+17:18:00,5,3,Stables Exhibition
+17:24:00,5,3,Stables Exhibition
+17:29:00,5,3,Stables Exhibition
+17:34:00,5,3,Stables Exhibition
+17:40:00,5,3,Stables Exhibition
+17:45:00,5,3,Stables Exhibition
+17:50:00,5,3,Stables Exhibition
+17:55:00,5,3,Stables Exhibition
+09:00:00,6,0,Stables Cafe
+09:05:00,6,0,Stables Cafe
+09:11:00,6,2,Stables Cafe
+09:16:00,6,3,Stables Cafe
+09:21:00,6,3,Stables Cafe
+09:26:00,6,2,Stables Cafe
+09:32:00,6,2,Stables Cafe
+09:37:00,6,2,Stables Cafe
+09:42:00,6,1,Stables Cafe
+09:47:00,6,1,Stables Cafe
+09:52:00,6,1,Stables Cafe
+09:58:00,6,2,Stables Cafe
+10:03:00,6,2,Stables Cafe
+10:08:00,6,2,Stables Cafe
+10:13:00,6,2,Stables Cafe
+10:19:00,6,2,Stables Cafe
+10:24:00,6,3,Stables Cafe
+10:29:00,6,3,Stables Cafe
+10:34:00,6,3,Stables Cafe
+10:40:00,6,9,Stables Cafe
+10:45:00,6,10,Stables Cafe
+10:50:00,6,11,Stables Cafe
+10:55:00,6,8,Stables Cafe
+11:00:00,6,10,Stables Cafe
+11:06:00,6,11,Stables Cafe
+11:11:00,6,17,Stables Cafe
+11:16:00,6,18,Stables Cafe
+11:21:00,6,19,Stables Cafe
+11:27:00,6,11,Stables Cafe
+11:32:00,6,10,Stables Cafe
+11:37:00,6,9,Stables Cafe
+11:42:00,6,15,Stables Cafe
+11:48:00,6,12,Stables Cafe
+11:53:00,6,13,Stables Cafe
+11:58:00,6,10,Stables Cafe
+12:03:00,6,11,Stables Cafe
+12:09:00,6,15,Stables Cafe
+12:14:00,6,17,Stables Cafe
+12:19:00,6,14,Stables Cafe
+12:24:00,6,16,Stables Cafe
+12:30:00,6,17,Stables Cafe
+12:35:00,6,15,Stables Cafe
+12:40:00,6,15,Stables Cafe
+12:45:00,6,12,Stables Cafe
+12:51:00,6,15,Stables Cafe
+12:56:00,6,19,Stables Cafe
+13:01:00,6,18,Stables Cafe
+13:06:00,6,14,Stables Cafe
+13:12:00,6,14,Stables Cafe
+13:17:00,6,11,Stables Cafe
+13:22:00,6,26,Stables Cafe
+13:27:00,6,32,Stables Cafe
+13:33:00,6,34,Stables Cafe
+13:38:00,6,32,Stables Cafe
+13:43:00,6,32,Stables Cafe
+13:48:00,6,31,Stables Cafe
+13:54:00,6,22,Stables Cafe
+13:59:00,6,21,Stables Cafe
+14:04:00,6,23,Stables Cafe
+14:09:00,6,27,Stables Cafe
+14:15:00,6,27,Stables Cafe
+14:20:00,6,28,Stables Cafe
+14:25:00,6,15,Stables Cafe
+14:30:00,6,14,Stables Cafe
+14:36:00,6,12,Stables Cafe
+14:41:00,6,28,Stables Cafe
+14:46:00,6,35,Stables Cafe
+14:51:00,6,29,Stables Cafe
+14:57:00,6,35,Stables Cafe
+15:02:00,6,34,Stables Cafe
+15:07:00,6,27,Stables Cafe
+15:12:00,6,23,Stables Cafe
+15:18:00,6,23,Stables Cafe
+15:23:00,6,26,Stables Cafe
+15:28:00,6,26,Stables Cafe
+15:33:00,6,25,Stables Cafe
+15:39:00,6,14,Stables Cafe
+15:44:00,6,14,Stables Cafe
+15:49:00,6,13,Stables Cafe
+15:54:00,6,11,Stables Cafe
+16:00:00,6,9,Stables Cafe
+16:05:00,6,10,Stables Cafe
+16:10:00,6,7,Stables Cafe
+16:15:00,6,6,Stables Cafe
+16:21:00,6,6,Stables Cafe
+16:26:00,6,7,Stables Cafe
+16:31:00,6,7,Stables Cafe
+16:36:00,6,7,Stables Cafe
+16:42:00,6,4,Stables Cafe
+16:47:00,6,3,Stables Cafe
+16:52:00,6,3,Stables Cafe
+16:57:00,6,4,Stables Cafe
+17:03:00,6,4,Stables Cafe
+17:08:00,6,4,Stables Cafe
+17:13:00,6,4,Stables Cafe
+17:18:00,6,4,Stables Cafe
+17:24:00,6,4,Stables Cafe
+17:29:00,6,4,Stables Cafe
+17:34:00,6,4,Stables Cafe
+17:40:00,6,4,Stables Cafe
+17:45:00,6,4,Stables Cafe
+17:50:00,6,4,Stables Cafe
+17:55:00,6,4,Stables Cafe
+09:00:00,7,0,Churchill Exhibition
+09:05:00,7,0,Churchill Exhibition
+09:11:00,7,0,Churchill Exhibition
+09:16:00,7,0,Churchill Exhibition
+09:21:00,7,0,Churchill Exhibition
+09:26:00,7,0,Churchill Exhibition
+09:32:00,7,0,Churchill Exhibition
+09:37:00,7,0,Churchill Exhibition
+09:42:00,7,0,Churchill Exhibition
+09:47:00,7,0,Churchill Exhibition
+09:52:00,7,0,Churchill Exhibition
+09:58:00,7,0,Churchill Exhibition
+10:03:00,7,0,Churchill Exhibition
+10:08:00,7,0,Churchill Exhibition
+10:13:00,7,1,Churchill Exhibition
+10:19:00,7,1,Churchill Exhibition
+10:24:00,7,1,Churchill Exhibition
+10:29:00,7,1,Churchill Exhibition
+10:34:00,7,1,Churchill Exhibition
+10:40:00,7,2,Churchill Exhibition
+10:45:00,7,2,Churchill Exhibition
+10:50:00,7,3,Churchill Exhibition
+10:55:00,7,3,Churchill Exhibition
+11:00:00,7,4,Churchill Exhibition
+11:06:00,7,6,Churchill Exhibition
+11:11:00,7,6,Churchill Exhibition
+11:16:00,7,9,Churchill Exhibition
+11:21:00,7,11,Churchill Exhibition
+11:27:00,7,10,Churchill Exhibition
+11:32:00,7,10,Churchill Exhibition
+11:37:00,7,12,Churchill Exhibition
+11:42:00,7,11,Churchill Exhibition
+11:48:00,7,14,Churchill Exhibition
+11:53:00,7,15,Churchill Exhibition
+11:58:00,7,14,Churchill Exhibition
+12:03:00,7,16,Churchill Exhibition
+12:09:00,7,16,Churchill Exhibition
+12:14:00,7,18,Churchill Exhibition
+12:19:00,7,12,Churchill Exhibition
+12:24:00,7,12,Churchill Exhibition
+12:30:00,7,12,Churchill Exhibition
+12:35:00,7,12,Churchill Exhibition
+12:40:00,7,12,Churchill Exhibition
+12:45:00,7,11,Churchill Exhibition
+12:51:00,7,15,Churchill Exhibition
+12:56:00,7,17,Churchill Exhibition
+13:01:00,7,16,Churchill Exhibition
+13:06:00,7,15,Churchill Exhibition
+13:12:00,7,15,Churchill Exhibition
+13:17:00,7,14,Churchill Exhibition
+13:22:00,7,15,Churchill Exhibition
+13:27:00,7,15,Churchill Exhibition
+13:33:00,7,16,Churchill Exhibition
+13:38:00,7,19,Churchill Exhibition
+13:43:00,7,17,Churchill Exhibition
+13:48:00,7,18,Churchill Exhibition
+13:54:00,7,16,Churchill Exhibition
+13:59:00,7,16,Churchill Exhibition
+14:04:00,7,13,Churchill Exhibition
+14:09:00,7,11,Churchill Exhibition
+14:15:00,7,15,Churchill Exhibition
+14:20:00,7,17,Churchill Exhibition
+14:25:00,7,16,Churchill Exhibition
+14:30:00,7,16,Churchill Exhibition
+14:36:00,7,18,Churchill Exhibition
+14:41:00,7,19,Churchill Exhibition
+14:46:00,7,17,Churchill Exhibition
+14:51:00,7,11,Churchill Exhibition
+14:57:00,7,11,Churchill Exhibition
+15:02:00,7,10,Churchill Exhibition
+15:07:00,7,10,Churchill Exhibition
+15:12:00,7,9,Churchill Exhibition
+15:18:00,7,11,Churchill Exhibition
+15:23:00,7,14,Churchill Exhibition
+15:28:00,7,14,Churchill Exhibition
+15:33:00,7,14,Churchill Exhibition
+15:39:00,7,15,Churchill Exhibition
+15:44:00,7,12,Churchill Exhibition
+15:49:00,7,13,Churchill Exhibition
+15:54:00,7,13,Churchill Exhibition
+16:00:00,7,10,Churchill Exhibition
+16:05:00,7,6,Churchill Exhibition
+16:10:00,7,6,Churchill Exhibition
+16:15:00,7,5,Churchill Exhibition
+16:21:00,7,6,Churchill Exhibition
+16:26:00,7,6,Churchill Exhibition
+16:31:00,7,7,Churchill Exhibition
+16:36:00,7,6,Churchill Exhibition
+16:42:00,7,6,Churchill Exhibition
+16:47:00,7,6,Churchill Exhibition
+16:52:00,7,6,Churchill Exhibition
+16:57:00,7,6,Churchill Exhibition
+17:03:00,7,5,Churchill Exhibition
+17:08:00,7,5,Churchill Exhibition
+17:13:00,7,5,Churchill Exhibition
+17:18:00,7,5,Churchill Exhibition
+17:24:00,7,5,Churchill Exhibition
+17:29:00,7,5,Churchill Exhibition
+17:34:00,7,5,Churchill Exhibition
+17:40:00,7,5,Churchill Exhibition
+17:45:00,7,5,Churchill Exhibition
+17:50:00,7,5,Churchill Exhibition
+17:55:00,7,5,Churchill Exhibition
+09:00:00,13,0,Retail Toilet
+09:05:00,13,0,Retail Toilet
+09:11:00,13,0,Retail Toilet
+09:16:00,13,0,Retail Toilet
+09:21:00,13,0,Retail Toilet
+09:26:00,13,0,Retail Toilet
+09:32:00,13,0,Retail Toilet
+09:37:00,13,0,Retail Toilet
+09:42:00,13,0,Retail Toilet
+09:47:00,13,1,Retail Toilet
+09:52:00,13,2,Retail Toilet
+09:58:00,13,2,Retail Toilet
+10:03:00,13,2,Retail Toilet
+10:08:00,13,3,Retail Toilet
+10:13:00,13,3,Retail Toilet
+10:19:00,13,4,Retail Toilet
+10:24:00,13,4,Retail Toilet
+10:29:00,13,5,Retail Toilet
+10:34:00,13,9,Retail Toilet
+10:40:00,13,9,Retail Toilet
+10:45:00,13,9,Retail Toilet
+10:50:00,13,8,Retail Toilet
+10:55:00,13,8,Retail Toilet
+11:00:00,13,7,Retail Toilet
+11:06:00,13,7,Retail Toilet
+11:11:00,13,7,Retail Toilet
+11:16:00,13,11,Retail Toilet
+11:21:00,13,12,Retail Toilet
+11:27:00,13,12,Retail Toilet
+11:32:00,13,12,Retail Toilet
+11:37:00,13,12,Retail Toilet
+11:42:00,13,12,Retail Toilet
+11:48:00,13,11,Retail Toilet
+11:53:00,13,11,Retail Toilet
+11:58:00,13,12,Retail Toilet
+12:03:00,13,20,Retail Toilet
+12:09:00,13,20,Retail Toilet
+12:14:00,13,20,Retail Toilet
+12:19:00,13,15,Retail Toilet
+12:24:00,13,14,Retail Toilet
+12:30:00,13,15,Retail Toilet
+12:35:00,13,15,Retail Toilet
+12:40:00,13,15,Retail Toilet
+12:45:00,13,15,Retail Toilet
+12:51:00,13,18,Retail Toilet
+12:56:00,13,18,Retail Toilet
+13:01:00,13,23,Retail Toilet
+13:06:00,13,24,Retail Toilet
+13:12:00,13,24,Retail Toilet
+13:17:00,13,23,Retail Toilet
+13:22:00,13,23,Retail Toilet
+13:27:00,13,23,Retail Toilet
+13:33:00,13,19,Retail Toilet
+13:38:00,13,19,Retail Toilet
+13:43:00,13,18,Retail Toilet
+13:48:00,13,19,Retail Toilet
+13:54:00,13,19,Retail Toilet
+13:59:00,13,19,Retail Toilet
+14:04:00,13,22,Retail Toilet
+14:09:00,13,22,Retail Toilet
+14:15:00,13,22,Retail Toilet
+14:20:00,13,14,Retail Toilet
+14:25:00,13,15,Retail Toilet
+14:30:00,13,15,Retail Toilet
+14:36:00,13,17,Retail Toilet
+14:41:00,13,17,Retail Toilet
+14:46:00,13,17,Retail Toilet
+14:51:00,13,16,Retail Toilet
+14:57:00,13,16,Retail Toilet
+15:02:00,13,16,Retail Toilet
+15:07:00,13,16,Retail Toilet
+15:12:00,13,17,Retail Toilet
+15:18:00,13,16,Retail Toilet
+15:23:00,13,16,Retail Toilet
+15:28:00,13,16,Retail Toilet
+15:33:00,13,18,Retail Toilet
+15:39:00,13,18,Retail Toilet
+15:44:00,13,18,Retail Toilet
+15:49:00,13,15,Retail Toilet
+15:54:00,13,15,Retail Toilet
+16:00:00,13,14,Retail Toilet
+16:05:00,13,14,Retail Toilet
+16:10:00,13,14,Retail Toilet
+16:15:00,13,14,Retail Toilet
+16:21:00,13,13,Retail Toilet
+16:26:00,13,13,Retail Toilet
+16:31:00,13,13,Retail Toilet
+16:36:00,13,7,Retail Toilet
+16:42:00,13,7,Retail Toilet
+16:47:00,13,7,Retail Toilet
+16:52:00,13,4,Retail Toilet
+16:57:00,13,4,Retail Toilet
+17:03:00,13,3,Retail Toilet
+17:08:00,13,3,Retail Toilet
+17:13:00,13,3,Retail Toilet
+17:18:00,13,1,Retail Toilet
+17:24:00,13,0,Retail Toilet
+17:29:00,13,0,Retail Toilet
+17:34:00,13,0,Retail Toilet
+17:40:00,13,0,Retail Toilet
+17:45:00,13,0,Retail Toilet
+17:50:00,13,0,Retail Toilet
+17:55:00,13,0,Retail Toilet
+09:00:00,14,0,Palace Inside 2
+09:05:00,14,0,Palace Inside 2
+09:11:00,14,0,Palace Inside 2
+09:16:00,14,0,Palace Inside 2
+09:21:00,14,0,Palace Inside 2
+09:26:00,14,1,Palace Inside 2
+09:32:00,14,2,Palace Inside 2
+09:37:00,14,3,Palace Inside 2
+09:42:00,14,3,Palace Inside 2
+09:47:00,14,4,Palace Inside 2
+09:52:00,14,4,Palace Inside 2
+09:58:00,14,5,Palace Inside 2
+10:03:00,14,5,Palace Inside 2
+10:08:00,14,5,Palace Inside 2
+10:13:00,14,8,Palace Inside 2
+10:19:00,14,9,Palace Inside 2
+10:24:00,14,11,Palace Inside 2
+10:29:00,14,11,Palace Inside 2
+10:34:00,14,13,Palace Inside 2
+10:40:00,14,14,Palace Inside 2
+10:45:00,14,17,Palace Inside 2
+10:50:00,14,23,Palace Inside 2
+10:55:00,14,30,Palace Inside 2
+11:00:00,14,38,Palace Inside 2
+11:06:00,14,40,Palace Inside 2
+11:11:00,14,45,Palace Inside 2
+11:16:00,14,50,Palace Inside 2
+11:21:00,14,57,Palace Inside 2
+11:27:00,14,60,Palace Inside 2
+11:32:00,14,64,Palace Inside 2
+11:37:00,14,66,Palace Inside 2
+11:42:00,14,71,Palace Inside 2
+11:48:00,14,73,Palace Inside 2
+11:53:00,14,73,Palace Inside 2
+11:58:00,14,75,Palace Inside 2
+12:03:00,14,78,Palace Inside 2
+12:09:00,14,80,Palace Inside 2
+12:14:00,14,81,Palace Inside 2
+12:19:00,14,79,Palace Inside 2
+12:24:00,14,78,Palace Inside 2
+12:30:00,14,79,Palace Inside 2
+12:35:00,14,92,Palace Inside 2
+12:40:00,14,81,Palace Inside 2
+12:45:00,14,81,Palace Inside 2
+12:51:00,14,84,Palace Inside 2
+12:56:00,14,84,Palace Inside 2
+13:01:00,14,82,Palace Inside 2
+13:06:00,14,86,Palace Inside 2
+13:12:00,14,84,Palace Inside 2
+13:17:00,14,78,Palace Inside 2
+13:22:00,14,81,Palace Inside 2
+13:27:00,14,79,Palace Inside 2
+13:33:00,14,82,Palace Inside 2
+13:38:00,14,81,Palace Inside 2
+13:43:00,14,82,Palace Inside 2
+13:48:00,14,92,Palace Inside 2
+13:54:00,14,91,Palace Inside 2
+13:59:00,14,98,Palace Inside 2
+14:04:00,14,91,Palace Inside 2
+14:09:00,14,93,Palace Inside 2
+14:15:00,14,89,Palace Inside 2
+14:20:00,14,80,Palace Inside 2
+14:25:00,14,91,Palace Inside 2
+14:30:00,14,81,Palace Inside 2
+14:36:00,14,92,Palace Inside 2
+14:41:00,14,95,Palace Inside 2
+14:46:00,14,107,Palace Inside 2
+14:51:00,14,112,Palace Inside 2
+14:57:00,14,104,Palace Inside 2
+15:02:00,14,99,Palace Inside 2
+15:07:00,14,97,Palace Inside 2
+15:12:00,14,89,Palace Inside 2
+15:18:00,14,84,Palace Inside 2
+15:23:00,14,72,Palace Inside 2
+15:28:00,14,69,Palace Inside 2
+15:33:00,14,66,Palace Inside 2
+15:39:00,14,58,Palace Inside 2
+15:44:00,14,55,Palace Inside 2
+15:49:00,14,54,Palace Inside 2
+15:54:00,14,58,Palace Inside 2
+16:00:00,14,59,Palace Inside 2
+16:05:00,14,59,Palace Inside 2
+16:10:00,14,56,Palace Inside 2
+16:15:00,14,53,Palace Inside 2
+16:21:00,14,49,Palace Inside 2
+16:26:00,14,47,Palace Inside 2
+16:31:00,14,46,Palace Inside 2
+16:36:00,14,41,Palace Inside 2
+16:42:00,14,37,Palace Inside 2
+16:47:00,14,34,Palace Inside 2
+16:52:00,14,32,Palace Inside 2
+16:57:00,14,30,Palace Inside 2
+17:03:00,14,29,Palace Inside 2
+17:08:00,14,28,Palace Inside 2
+17:13:00,14,27,Palace Inside 2
+17:18:00,14,26,Palace Inside 2
+17:24:00,14,25,Palace Inside 2
+17:29:00,14,25,Palace Inside 2
+17:34:00,14,24,Palace Inside 2
+17:40:00,14,24,Palace Inside 2
+17:45:00,14,24,Palace Inside 2
+17:50:00,14,23,Palace Inside 2
+17:55:00,14,23,Palace Inside 2
+09:00:00,16,0,Churchill Male Toilet
+09:05:00,16,0,Churchill Male Toilet
+09:11:00,16,0,Churchill Male Toilet
+09:16:00,16,0,Churchill Male Toilet
+09:21:00,16,0,Churchill Male Toilet
+09:26:00,16,0,Churchill Male Toilet
+09:32:00,16,0,Churchill Male Toilet
+09:37:00,16,0,Churchill Male Toilet
+09:42:00,16,0,Churchill Male Toilet
+09:47:00,16,0,Churchill Male Toilet
+09:52:00,16,0,Churchill Male Toilet
+09:58:00,16,0,Churchill Male Toilet
+10:03:00,16,0,Churchill Male Toilet
+10:08:00,16,0,Churchill Male Toilet
+10:13:00,16,0,Churchill Male Toilet
+10:19:00,16,0,Churchill Male Toilet
+10:24:00,16,0,Churchill Male Toilet
+10:29:00,16,0,Churchill Male Toilet
+10:34:00,16,0,Churchill Male Toilet
+10:40:00,16,0,Churchill Male Toilet
+10:45:00,16,0,Churchill Male Toilet
+10:50:00,16,0,Churchill Male Toilet
+10:55:00,16,0,Churchill Male Toilet
+11:00:00,16,0,Churchill Male Toilet
+11:06:00,16,0,Churchill Male Toilet
+11:11:00,16,1,Churchill Male Toilet
+11:16:00,16,1,Churchill Male Toilet
+11:21:00,16,1,Churchill Male Toilet
+11:27:00,16,1,Churchill Male Toilet
+11:32:00,16,1,Churchill Male Toilet
+11:37:00,16,1,Churchill Male Toilet
+11:42:00,16,1,Churchill Male Toilet
+11:48:00,16,1,Churchill Male Toilet
+11:53:00,16,1,Churchill Male Toilet
+11:58:00,16,1,Churchill Male Toilet
+12:03:00,16,1,Churchill Male Toilet
+12:09:00,16,1,Churchill Male Toilet
+12:14:00,16,2,Churchill Male Toilet
+12:19:00,16,1,Churchill Male Toilet
+12:24:00,16,1,Churchill Male Toilet
+12:30:00,16,1,Churchill Male Toilet
+12:35:00,16,1,Churchill Male Toilet
+12:40:00,16,1,Churchill Male Toilet
+12:45:00,16,1,Churchill Male Toilet
+12:51:00,16,1,Churchill Male Toilet
+12:56:00,16,1,Churchill Male Toilet
+13:01:00,16,1,Churchill Male Toilet
+13:06:00,16,1,Churchill Male Toilet
+13:12:00,16,1,Churchill Male Toilet
+13:17:00,16,1,Churchill Male Toilet
+13:22:00,16,2,Churchill Male Toilet
+13:27:00,16,2,Churchill Male Toilet
+13:33:00,16,2,Churchill Male Toilet
+13:38:00,16,2,Churchill Male Toilet
+13:43:00,16,1,Churchill Male Toilet
+13:48:00,16,1,Churchill Male Toilet
+13:54:00,16,1,Churchill Male Toilet
+13:59:00,16,1,Churchill Male Toilet
+14:04:00,16,2,Churchill Male Toilet
+14:09:00,16,1,Churchill Male Toilet
+14:15:00,16,3,Churchill Male Toilet
+14:20:00,16,3,Churchill Male Toilet
+14:25:00,16,3,Churchill Male Toilet
+14:30:00,16,2,Churchill Male Toilet
+14:36:00,16,1,Churchill Male Toilet
+14:41:00,16,1,Churchill Male Toilet
+14:46:00,16,1,Churchill Male Toilet
+14:51:00,16,1,Churchill Male Toilet
+14:57:00,16,1,Churchill Male Toilet
+15:02:00,16,1,Churchill Male Toilet
+15:07:00,16,1,Churchill Male Toilet
+15:12:00,16,1,Churchill Male Toilet
+15:18:00,16,1,Churchill Male Toilet
+15:23:00,16,1,Churchill Male Toilet
+15:28:00,16,2,Churchill Male Toilet
+15:33:00,16,2,Churchill Male Toilet
+15:39:00,16,1,Churchill Male Toilet
+15:44:00,16,1,Churchill Male Toilet
+15:49:00,16,1,Churchill Male Toilet
+15:54:00,16,1,Churchill Male Toilet
+16:00:00,16,1,Churchill Male Toilet
+16:05:00,16,1,Churchill Male Toilet
+16:10:00,16,0,Churchill Male Toilet
+16:15:00,16,0,Churchill Male Toilet
+16:21:00,16,0,Churchill Male Toilet
+16:26:00,16,1,Churchill Male Toilet
+16:31:00,16,1,Churchill Male Toilet
+16:36:00,16,1,Churchill Male Toilet
+16:42:00,16,1,Churchill Male Toilet
+16:47:00,16,0,Churchill Male Toilet
+16:52:00,16,0,Churchill Male Toilet
+16:57:00,16,0,Churchill Male Toilet
+17:03:00,16,0,Churchill Male Toilet
+17:08:00,16,0,Churchill Male Toilet
+17:13:00,16,0,Churchill Male Toilet
+17:18:00,16,0,Churchill Male Toilet
+17:24:00,16,0,Churchill Male Toilet
+17:29:00,16,0,Churchill Male Toilet
+17:34:00,16,0,Churchill Male Toilet
+17:40:00,16,0,Churchill Male Toilet
+17:45:00,16,0,Churchill Male Toilet
+17:50:00,16,0,Churchill Male Toilet
+17:55:00,16,0,Churchill Male Toilet
+09:00:00,17,0,Churchill Female Toilet
+09:05:00,17,0,Churchill Female Toilet
+09:11:00,17,0,Churchill Female Toilet
+09:16:00,17,0,Churchill Female Toilet
+09:21:00,17,0,Churchill Female Toilet
+09:26:00,17,0,Churchill Female Toilet
+09:32:00,17,0,Churchill Female Toilet
+09:37:00,17,0,Churchill Female Toilet
+09:42:00,17,0,Churchill Female Toilet
+09:47:00,17,0,Churchill Female Toilet
+09:52:00,17,0,Churchill Female Toilet
+09:58:00,17,0,Churchill Female Toilet
+10:03:00,17,0,Churchill Female Toilet
+10:08:00,17,0,Churchill Female Toilet
+10:13:00,17,0,Churchill Female Toilet
+10:19:00,17,0,Churchill Female Toilet
+10:24:00,17,0,Churchill Female Toilet
+10:29:00,17,0,Churchill Female Toilet
+10:34:00,17,0,Churchill Female Toilet
+10:40:00,17,0,Churchill Female Toilet
+10:45:00,17,0,Churchill Female Toilet
+10:50:00,17,0,Churchill Female Toilet
+10:55:00,17,0,Churchill Female Toilet
+11:00:00,17,0,Churchill Female Toilet
+11:06:00,17,0,Churchill Female Toilet
+11:11:00,17,1,Churchill Female Toilet
+11:16:00,17,1,Churchill Female Toilet
+11:21:00,17,1,Churchill Female Toilet
+11:27:00,17,1,Churchill Female Toilet
+11:32:00,17,1,Churchill Female Toilet
+11:37:00,17,1,Churchill Female Toilet
+11:42:00,17,1,Churchill Female Toilet
+11:48:00,17,1,Churchill Female Toilet
+11:53:00,17,1,Churchill Female Toilet
+11:58:00,17,1,Churchill Female Toilet
+12:03:00,17,1,Churchill Female Toilet
+12:09:00,17,1,Churchill Female Toilet
+12:14:00,17,1,Churchill Female Toilet
+12:19:00,17,1,Churchill Female Toilet
+12:24:00,17,1,Churchill Female Toilet
+12:30:00,17,1,Churchill Female Toilet
+12:35:00,17,1,Churchill Female Toilet
+12:40:00,17,1,Churchill Female Toilet
+12:45:00,17,1,Churchill Female Toilet
+12:51:00,17,2,Churchill Female Toilet
+12:56:00,17,1,Churchill Female Toilet
+13:01:00,17,1,Churchill Female Toilet
+13:06:00,17,1,Churchill Female Toilet
+13:12:00,17,1,Churchill Female Toilet
+13:17:00,17,1,Churchill Female Toilet
+13:22:00,17,1,Churchill Female Toilet
+13:27:00,17,1,Churchill Female Toilet
+13:33:00,17,1,Churchill Female Toilet
+13:38:00,17,1,Churchill Female Toilet
+13:43:00,17,1,Churchill Female Toilet
+13:48:00,17,1,Churchill Female Toilet
+13:54:00,17,1,Churchill Female Toilet
+13:59:00,17,1,Churchill Female Toilet
+14:04:00,17,1,Churchill Female Toilet
+14:09:00,17,1,Churchill Female Toilet
+14:15:00,17,1,Churchill Female Toilet
+14:20:00,17,1,Churchill Female Toilet
+14:25:00,17,1,Churchill Female Toilet
+14:30:00,17,1,Churchill Female Toilet
+14:36:00,17,2,Churchill Female Toilet
+14:41:00,17,2,Churchill Female Toilet
+14:46:00,17,1,Churchill Female Toilet
+14:51:00,17,1,Churchill Female Toilet
+14:57:00,17,1,Churchill Female Toilet
+15:02:00,17,1,Churchill Female Toilet
+15:07:00,17,1,Churchill Female Toilet
+15:12:00,17,1,Churchill Female Toilet
+15:18:00,17,1,Churchill Female Toilet
+15:23:00,17,1,Churchill Female Toilet
+15:28:00,17,2,Churchill Female Toilet
+15:33:00,17,2,Churchill Female Toilet
+15:39:00,17,2,Churchill Female Toilet
+15:44:00,17,1,Churchill Female Toilet
+15:49:00,17,1,Churchill Female Toilet
+15:54:00,17,1,Churchill Female Toilet
+16:00:00,17,1,Churchill Female Toilet
+16:05:00,17,0,Churchill Female Toilet
+16:10:00,17,0,Churchill Female Toilet
+16:15:00,17,1,Churchill Female Toilet
+16:21:00,17,0,Churchill Female Toilet
+16:26:00,17,0,Churchill Female Toilet
+16:31:00,17,0,Churchill Female Toilet
+16:36:00,17,0,Churchill Female Toilet
+16:42:00,17,0,Churchill Female Toilet
+16:47:00,17,0,Churchill Female Toilet
+16:52:00,17,0,Churchill Female Toilet
+16:57:00,17,0,Churchill Female Toilet
+17:03:00,17,0,Churchill Female Toilet
+17:08:00,17,0,Churchill Female Toilet
+17:13:00,17,0,Churchill Female Toilet
+17:18:00,17,0,Churchill Female Toilet
+17:24:00,17,0,Churchill Female Toilet
+17:29:00,17,0,Churchill Female Toilet
+17:34:00,17,0,Churchill Female Toilet
+17:40:00,17,0,Churchill Female Toilet
+17:45:00,17,0,Churchill Female Toilet
+17:50:00,17,0,Churchill Female Toilet
+17:55:00,17,0,Churchill Female Toilet
+09:00:00,20,0,Stables Male toilet
+09:05:00,20,0,Stables Male toilet
+09:11:00,20,0,Stables Male toilet
+09:16:00,20,0,Stables Male toilet
+09:21:00,20,0,Stables Male toilet
+09:26:00,20,0,Stables Male toilet
+09:32:00,20,0,Stables Male toilet
+09:37:00,20,0,Stables Male toilet
+09:42:00,20,0,Stables Male toilet
+09:47:00,20,0,Stables Male toilet
+09:52:00,20,0,Stables Male toilet
+09:58:00,20,0,Stables Male toilet
+10:03:00,20,0,Stables Male toilet
+10:08:00,20,0,Stables Male toilet
+10:13:00,20,0,Stables Male toilet
+10:19:00,20,0,Stables Male toilet
+10:24:00,20,0,Stables Male toilet
+10:29:00,20,0,Stables Male toilet
+10:34:00,20,0,Stables Male toilet
+10:40:00,20,0,Stables Male toilet
+10:45:00,20,0,Stables Male toilet
+10:50:00,20,0,Stables Male toilet
+10:55:00,20,0,Stables Male toilet
+11:00:00,20,0,Stables Male toilet
+11:06:00,20,0,Stables Male toilet
+11:11:00,20,0,Stables Male toilet
+11:16:00,20,0,Stables Male toilet
+11:21:00,20,1,Stables Male toilet
+11:27:00,20,0,Stables Male toilet
+11:32:00,20,0,Stables Male toilet
+11:37:00,20,0,Stables Male toilet
+11:42:00,20,0,Stables Male toilet
+11:48:00,20,0,Stables Male toilet
+11:53:00,20,0,Stables Male toilet
+11:58:00,20,0,Stables Male toilet
+12:03:00,20,0,Stables Male toilet
+12:09:00,20,1,Stables Male toilet
+12:14:00,20,1,Stables Male toilet
+12:19:00,20,0,Stables Male toilet
+12:24:00,20,0,Stables Male toilet
+12:30:00,20,1,Stables Male toilet
+12:35:00,20,0,Stables Male toilet
+12:40:00,20,0,Stables Male toilet
+12:45:00,20,0,Stables Male toilet
+12:51:00,20,0,Stables Male toilet
+12:56:00,20,1,Stables Male toilet
+13:01:00,20,1,Stables Male toilet
+13:06:00,20,0,Stables Male toilet
+13:12:00,20,0,Stables Male toilet
+13:17:00,20,0,Stables Male toilet
+13:22:00,20,1,Stables Male toilet
+13:27:00,20,1,Stables Male toilet
+13:33:00,20,2,Stables Male toilet
+13:38:00,20,1,Stables Male toilet
+13:43:00,20,1,Stables Male toilet
+13:48:00,20,1,Stables Male toilet
+13:54:00,20,1,Stables Male toilet
+13:59:00,20,1,Stables Male toilet
+14:04:00,20,1,Stables Male toilet
+14:09:00,20,1,Stables Male toilet
+14:15:00,20,1,Stables Male toilet
+14:20:00,20,1,Stables Male toilet
+14:25:00,20,0,Stables Male toilet
+14:30:00,20,1,Stables Male toilet
+14:36:00,20,1,Stables Male toilet
+14:41:00,20,2,Stables Male toilet
+14:46:00,20,2,Stables Male toilet
+14:51:00,20,1,Stables Male toilet
+14:57:00,20,1,Stables Male toilet
+15:02:00,20,1,Stables Male toilet
+15:07:00,20,1,Stables Male toilet
+15:12:00,20,1,Stables Male toilet
+15:18:00,20,0,Stables Male toilet
+15:23:00,20,1,Stables Male toilet
+15:28:00,20,1,Stables Male toilet
+15:33:00,20,1,Stables Male toilet
+15:39:00,20,0,Stables Male toilet
+15:44:00,20,0,Stables Male toilet
+15:49:00,20,0,Stables Male toilet
+15:54:00,20,0,Stables Male toilet
+16:00:00,20,0,Stables Male toilet
+16:05:00,20,0,Stables Male toilet
+16:10:00,20,0,Stables Male toilet
+16:15:00,20,0,Stables Male toilet
+16:21:00,20,0,Stables Male toilet
+16:26:00,20,0,Stables Male toilet
+16:31:00,20,0,Stables Male toilet
+16:36:00,20,0,Stables Male toilet
+16:42:00,20,0,Stables Male toilet
+16:47:00,20,0,Stables Male toilet
+16:52:00,20,0,Stables Male toilet
+16:57:00,20,0,Stables Male toilet
+17:03:00,20,0,Stables Male toilet
+17:08:00,20,0,Stables Male toilet
+17:13:00,20,0,Stables Male toilet
+17:18:00,20,0,Stables Male toilet
+17:24:00,20,0,Stables Male toilet
+17:29:00,20,0,Stables Male toilet
+17:34:00,20,0,Stables Male toilet
+17:40:00,20,0,Stables Male toilet
+17:45:00,20,0,Stables Male toilet
+17:50:00,20,0,Stables Male toilet
+17:55:00,20,0,Stables Male toilet
+09:00:00,21,0,Stables Female toilet
+09:05:00,21,0,Stables Female toilet
+09:11:00,21,0,Stables Female toilet
+09:16:00,21,0,Stables Female toilet
+09:21:00,21,0,Stables Female toilet
+09:26:00,21,0,Stables Female toilet
+09:32:00,21,0,Stables Female toilet
+09:37:00,21,0,Stables Female toilet
+09:42:00,21,0,Stables Female toilet
+09:47:00,21,0,Stables Female toilet
+09:52:00,21,0,Stables Female toilet
+09:58:00,21,0,Stables Female toilet
+10:03:00,21,0,Stables Female toilet
+10:08:00,21,0,Stables Female toilet
+10:13:00,21,0,Stables Female toilet
+10:19:00,21,0,Stables Female toilet
+10:24:00,21,0,Stables Female toilet
+10:29:00,21,0,Stables Female toilet
+10:34:00,21,0,Stables Female toilet
+10:40:00,21,0,Stables Female toilet
+10:45:00,21,0,Stables Female toilet
+10:50:00,21,0,Stables Female toilet
+10:55:00,21,0,Stables Female toilet
+11:00:00,21,0,Stables Female toilet
+11:06:00,21,0,Stables Female toilet
+11:11:00,21,0,Stables Female toilet
+11:16:00,21,1,Stables Female toilet
+11:21:00,21,1,Stables Female toilet
+11:27:00,21,1,Stables Female toilet
+11:32:00,21,0,Stables Female toilet
+11:37:00,21,0,Stables Female toilet
+11:42:00,21,1,Stables Female toilet
+11:48:00,21,0,Stables Female toilet
+11:53:00,21,0,Stables Female toilet
+11:58:00,21,0,Stables Female toilet
+12:03:00,21,0,Stables Female toilet
+12:09:00,21,1,Stables Female toilet
+12:14:00,21,2,Stables Female toilet
+12:19:00,21,1,Stables Female toilet
+12:24:00,21,1,Stables Female toilet
+12:30:00,21,1,Stables Female toilet
+12:35:00,21,1,Stables Female toilet
+12:40:00,21,0,Stables Female toilet
+12:45:00,21,1,Stables Female toilet
+12:51:00,21,1,Stables Female toilet
+12:56:00,21,1,Stables Female toilet
+13:01:00,21,1,Stables Female toilet
+13:06:00,21,0,Stables Female toilet
+13:12:00,21,1,Stables Female toilet
+13:17:00,21,1,Stables Female toilet
+13:22:00,21,2,Stables Female toilet
+13:27:00,21,2,Stables Female toilet
+13:33:00,21,1,Stables Female toilet
+13:38:00,21,2,Stables Female toilet
+13:43:00,21,2,Stables Female toilet
+13:48:00,21,1,Stables Female toilet
+13:54:00,21,1,Stables Female toilet
+13:59:00,21,1,Stables Female toilet
+14:04:00,21,2,Stables Female toilet
+14:09:00,21,1,Stables Female toilet
+14:15:00,21,1,Stables Female toilet
+14:20:00,21,1,Stables Female toilet
+14:25:00,21,1,Stables Female toilet
+14:30:00,21,1,Stables Female toilet
+14:36:00,21,0,Stables Female toilet
+14:41:00,21,2,Stables Female toilet
+14:46:00,21,3,Stables Female toilet
+14:51:00,21,2,Stables Female toilet
+14:57:00,21,2,Stables Female toilet
+15:02:00,21,1,Stables Female toilet
+15:07:00,21,1,Stables Female toilet
+15:12:00,21,1,Stables Female toilet
+15:18:00,21,1,Stables Female toilet
+15:23:00,21,1,Stables Female toilet
+15:28:00,21,1,Stables Female toilet
+15:33:00,21,1,Stables Female toilet
+15:39:00,21,0,Stables Female toilet
+15:44:00,21,0,Stables Female toilet
+15:49:00,21,0,Stables Female toilet
+15:54:00,21,0,Stables Female toilet
+16:00:00,21,0,Stables Female toilet
+16:05:00,21,0,Stables Female toilet
+16:10:00,21,0,Stables Female toilet
+16:15:00,21,0,Stables Female toilet
+16:21:00,21,0,Stables Female toilet
+16:26:00,21,1,Stables Female toilet
+16:31:00,21,1,Stables Female toilet
+16:36:00,21,1,Stables Female toilet
+16:42:00,21,0,Stables Female toilet
+16:47:00,21,0,Stables Female toilet
+16:52:00,21,0,Stables Female toilet
+16:57:00,21,0,Stables Female toilet
+17:03:00,21,0,Stables Female toilet
+17:08:00,21,0,Stables Female toilet
+17:13:00,21,0,Stables Female toilet
+17:18:00,21,0,Stables Female toilet
+17:24:00,21,0,Stables Female toilet
+17:29:00,21,0,Stables Female toilet
+17:34:00,21,0,Stables Female toilet
+17:40:00,21,0,Stables Female toilet
+17:45:00,21,0,Stables Female toilet
+17:50:00,21,0,Stables Female toilet
+17:55:00,21,0,Stables Female toilet
